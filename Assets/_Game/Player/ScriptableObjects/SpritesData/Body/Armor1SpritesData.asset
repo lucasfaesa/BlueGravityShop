@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7816452f34cc5ff4c9740c4b69277d7f, type: 3}
+  m_Name: Armor1SpritesData
+  m_EditorClassIdentifier: 
+  _equipmentType: 2
+  _idleUpdateRate: 1
+  _walkUpdateRate: 0.15
+  _runUpdateRate: 0.2
+  spritesBlocks:
+  - facingDirection: 0
+    idleSprites:
+    - {fileID: -784285924, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    walkingSprites:
+    - {fileID: -1085679982, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 1128748697, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 1109286722, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -2076931798, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 1867190708, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -1779983339, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    runningSprites:
+    - {fileID: 673673237, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 616455880, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+  - facingDirection: 1
+    idleSprites:
+    - {fileID: 1171295465, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    walkingSprites:
+    - {fileID: -472692760, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 1991727883, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 1207661756, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -22340500, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -2001602308, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 332059997, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    runningSprites:
+    - {fileID: -1932098408, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -377404117, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+  - facingDirection: 2
+    idleSprites:
+    - {fileID: 602994330, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    walkingSprites:
+    - {fileID: 1314452763, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 478362143, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 1945646858, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 210160915, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 537039980, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -1696321406, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    runningSprites:
+    - {fileID: -552571517, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 2066632826, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+  - facingDirection: 3
+    idleSprites:
+    - {fileID: 2107495209, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    walkingSprites:
+    - {fileID: -446022380, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -51166021, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -211455740, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 143248624, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -421501857, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: 2016802531, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    runningSprites:
+    - {fileID: 225756792, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -1316352867, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7816452f34cc5ff4c9740c4b69277d7f, type: 3}
+  m_Name: Hair2SpritesData
+  m_EditorClassIdentifier: 
+  _equipmentType: 1
+  _idleUpdateRate: 1
+  _walkUpdateRate: 0.15
+  _runUpdateRate: 0.2
+  spritesBlocks:
+  - facingDirection: 0
+    idleSprites:
+    - {fileID: -943013660, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    walkingSprites:
+    - {fileID: -861351904, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -792042623, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -1272786223, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 478922976, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -2021968391, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 2007441806, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    runningSprites:
+    - {fileID: 243303547, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1645915136, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+  - facingDirection: 1
+    idleSprites:
+    - {fileID: -1746514849, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    walkingSprites:
+    - {fileID: -931106723, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -2064675494, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1429326646, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -161063142, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1487095195, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1612356534, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    runningSprites:
+    - {fileID: 318763530, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -1336758542, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+  - facingDirection: 2
+    idleSprites:
+    - {fileID: -1542745632, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    walkingSprites:
+    - {fileID: -780798996, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 578200460, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1505832704, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -1069299791, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -568149589, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1050376797, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    runningSprites:
+    - {fileID: -1353211271, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -1466319971, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+  - facingDirection: 3
+    idleSprites:
+    - {fileID: 607429259, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    walkingSprites:
+    - {fileID: -1543102663, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -161995508, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -363769971, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -2046141840, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1509337514, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -736826343, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    runningSprites:
+    - {fileID: -1257607961, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -1551252381, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}

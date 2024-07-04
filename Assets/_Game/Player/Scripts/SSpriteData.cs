@@ -10,7 +10,9 @@ public class SSpriteData : ScriptableObject
 {
     [SerializeField] private Helpers.EquipmentType _equipmentType = Helpers.EquipmentType.BASE;
     [Space]
-    [SerializeField] private float _updateRate = 0.3f;
+    [SerializeField] private float _idleUpdateRate = 1f;
+    [SerializeField] private float _walkUpdateRate = 0.15f;
+    [SerializeField] private float _runUpdateRate = 0.2f;
     [Space]
     [SerializeField] private List<SpritesBlock> spritesBlocks = new();
 
@@ -51,9 +53,26 @@ public class SSpriteData : ScriptableObject
         return spritesBlocks.Find(x => x.facingDirection == direction);
     }
 
-    public float GetSpriteUpdateRate()
+    public float GetSpriteUpdateRate(Helpers.PlayerCurrentState state)
     {
-        return _updateRate;
+        
+        switch (state)
+        {
+            case Helpers.PlayerCurrentState.IDLE:
+                return _idleUpdateRate;
+                break;
+            case Helpers.PlayerCurrentState.WALKING:
+                return _walkUpdateRate;
+                break;
+            case Helpers.PlayerCurrentState.RUNNING:
+                return _runUpdateRate;
+                break;
+
+            default:
+                Debug.LogError("Error, trying to get inexistent state");
+                return _idleUpdateRate;
+                break;
+        }
     }
 
 

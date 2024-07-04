@@ -718,7 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEvents: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
   _baseSpriteSpriteRenderer: {fileID: 1724472471}
-  _baseSpriteData: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
+  _baseSpriteDataSO: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
 --- !u!1 &565598912
 GameObject:
   m_ObjectHideFlags: 0

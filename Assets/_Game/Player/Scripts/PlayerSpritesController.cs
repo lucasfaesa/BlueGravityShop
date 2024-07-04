@@ -10,17 +10,17 @@ public class PlayerSpritesController : MonoBehaviour
     
     [Header("Base Sprite")] 
     [SerializeField] private SpriteRenderer _baseSpriteSpriteRenderer;
-    [SerializeField] private SSpriteData _baseSpriteData;
+    [SerializeField] private SSpriteData _baseSpriteDataSO;
 
     private Helpers.FacingDirection _facingDirection = Helpers.FacingDirection.SOUTH;
     private Helpers.PlayerCurrentState _playerCurrentState = Helpers.PlayerCurrentState.WALKING;
     
     private bool _canAnimate = true;
 
-    private SpriteState baseSpriteState;
-    private SpriteState bodySpriteState;
-    private SpriteState headSpriteState;
-    private SpriteState hatSpriteState;
+    private SpriteState _baseSpriteState;
+    private SpriteState _bodySpriteState;
+    private SpriteState _headSpriteState;
+    private SpriteState _hatSpriteState;
     
     
     private void OnEnable()
@@ -38,8 +38,8 @@ public class PlayerSpritesController : MonoBehaviour
     void Start()
     {
         //base
-        List<Sprite> sprites = _baseSpriteData.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
-        baseSpriteState = new SpriteState(sprites, _baseSpriteData.GetSpriteUpdateRate());
+        List<Sprite> sprites = _baseSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
+        _baseSpriteState = new SpriteState(sprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
     }
     
     void Update()
@@ -57,18 +57,18 @@ public class PlayerSpritesController : MonoBehaviour
 
     private void UpdateBaseSprite()
     {
-        baseSpriteState.time += Time.deltaTime;
+        _baseSpriteState.time += Time.deltaTime;
         
-        if (baseSpriteState.time >= baseSpriteState.updateRate)
+        if (_baseSpriteState.time >= _baseSpriteState.updateRate)
         {
-            _baseSpriteSpriteRenderer.sprite = baseSpriteState.sprites[baseSpriteState.currentSpriteIndex];
+            _baseSpriteSpriteRenderer.sprite = _baseSpriteState.sprites[_baseSpriteState.currentSpriteIndex];
 
-            baseSpriteState.time = 0;
+            _baseSpriteState.time = 0;
 
-            baseSpriteState.currentSpriteIndex++; 
+            _baseSpriteState.currentSpriteIndex++; 
             
-            if (baseSpriteState.currentSpriteIndex > baseSpriteState.sprites.Count - 1)
-                baseSpriteState.currentSpriteIndex = 0;
+            if (_baseSpriteState.currentSpriteIndex > _baseSpriteState.sprites.Count - 1)
+                _baseSpriteState.currentSpriteIndex = 0;
         }
     }
 
@@ -89,9 +89,10 @@ public class PlayerSpritesController : MonoBehaviour
     
     private void ChangeSpritesList(Helpers.FacingDirection facingDirection, Helpers.PlayerCurrentState state)
     {
-        baseSpriteState.sprites = _baseSpriteData.GetCurrentStateSprites(facingDirection, state);
-        baseSpriteState.Reset();
-        _baseSpriteSpriteRenderer.sprite = baseSpriteState.sprites[0];
+        _baseSpriteState.sprites = _baseSpriteDataSO.GetCurrentStateSprites(facingDirection, state);
+        _baseSpriteState.Reset();
+        _baseSpriteSpriteRenderer.sprite = _baseSpriteState.sprites[0];
+        _baseSpriteState.updateRate = _baseSpriteDataSO.GetSpriteUpdateRate(state);
     }
 
     class SpriteState
