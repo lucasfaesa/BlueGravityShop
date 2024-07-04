@@ -139,6 +139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a89607b9529ed46bd753e4b6c145ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseSpriteSpriteRenderer: {fileID: 1724472471}
+  _baseSpriteData: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
+--- !u!212 &1724472471 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8098834647915906678, guid: 63db1c4f1968f4448b09e296fa3dc570, type: 3}
+  m_PrefabInstance: {fileID: 8785455877979088730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131424240
 GameObject:
   m_ObjectHideFlags: 0

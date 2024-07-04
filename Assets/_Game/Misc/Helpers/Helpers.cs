@@ -19,4 +19,11 @@ public static class Helpers
         EAST,
         WEST
     }
+
+    public enum PlayerCurrentState
+    {
+        IDLE,
+        WALKING,
+        RUNNING
+    }
 }
