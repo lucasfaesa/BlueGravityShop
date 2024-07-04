@@ -26,10 +26,10 @@ public class PlayerSpritesController : MonoBehaviour
     
     private bool _canAnimate = true;
 
-    private SpriteState _baseSpriteState;
-    private SpriteState _bodySpriteState;
-    private SpriteState _headSpriteState;
-    private SpriteState _hatSpriteState;
+    private SpriteAnimation _baseSpriteAnimation;
+    private SpriteAnimation _bodySpriteAnimation;
+    private SpriteAnimation _headSpriteAnimation;
+    private SpriteAnimation _hatSpriteAnimation;
     
     
     private void OnEnable()
@@ -48,17 +48,17 @@ public class PlayerSpritesController : MonoBehaviour
     {
         //base
         List<Sprite> baseSprites = _baseSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
-        _baseSpriteState = new SpriteState(baseSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        _baseSpriteAnimation = new SpriteAnimation(baseSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
         
         //TODO REMOVE LATER
         List<Sprite> bodySprites = _equippedBodySpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
-        _bodySpriteState = new SpriteState(bodySprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        _bodySpriteAnimation = new SpriteAnimation(bodySprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
         
         List<Sprite> headSprites = _equippedHeadSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
-        _headSpriteState = new SpriteState(headSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        _headSpriteAnimation = new SpriteAnimation(headSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
         
         List<Sprite> hatSprites = _equippedHatSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
-        _hatSpriteState = new SpriteState(hatSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        _hatSpriteAnimation = new SpriteAnimation(hatSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
     }
     
     void Update()
@@ -71,42 +71,27 @@ public class PlayerSpritesController : MonoBehaviour
 
     private void UpdateCurrentSprite()
     {
-        
-       UpdateBaseSprite();
-       UpdateBodySprite();
+       UpdateSprite(_baseSpriteAnimation, _baseSpriteSpriteRenderer);
+       UpdateSprite(_bodySpriteAnimation, _bodySpriteSpriteRenderer);
+       UpdateSprite(_headSpriteAnimation, _headSpriteSpriteRenderer);
+       UpdateSprite(_hatSpriteAnimation, _hatSpriteSpriteRenderer);
     }
 
-    private void UpdateBaseSprite()
+    private void UpdateSprite(SpriteAnimation spriteAnimation, SpriteRenderer spriteRenderer)
     {
-        _baseSpriteState.Time += Time.deltaTime;
+        if (!spriteAnimation.IsActive) return;
         
-        if (_baseSpriteState.Time >= _baseSpriteState.UpdateRate)
-        {
-            _baseSpriteSpriteRenderer.sprite = _baseSpriteState.Sprites[_baseSpriteState.CurrentSpriteIndex];
-
-            _baseSpriteState.Time = 0;
-
-            _baseSpriteState.CurrentSpriteIndex++; 
-            
-            if (_baseSpriteState.CurrentSpriteIndex > _baseSpriteState.Sprites.Count - 1)
-                _baseSpriteState.CurrentSpriteIndex = 0;
-        }
-    }
-
-    private void UpdateBodySprite()
-    {
-        _bodySpriteState.Time += Time.deltaTime;
+        spriteAnimation.Time += Time.deltaTime;
         
-        if (_bodySpriteState.Time >= _bodySpriteState.UpdateRate)
+        if (spriteAnimation.Time >= spriteAnimation.UpdateRate)
         {
-            _bodySpriteSpriteRenderer.sprite = _bodySpriteState.Sprites[_bodySpriteState.CurrentSpriteIndex];
+            spriteRenderer.sprite = spriteAnimation.Sprites[spriteAnimation.CurrentSpriteIndex];
 
-            _bodySpriteState.Time = 0;
+            spriteAnimation.Time = 0;
 
-            _bodySpriteState.CurrentSpriteIndex++; 
+            spriteAnimation.CurrentSpriteIndex++; 
             
-            if (_bodySpriteState.CurrentSpriteIndex > _bodySpriteState.Sprites.Count - 1)
-                _bodySpriteState.CurrentSpriteIndex = 0;
+            spriteAnimation.CurrentSpriteIndex %= spriteAnimation.Sprites.Count;
         }
     }
 
@@ -127,26 +112,28 @@ public class PlayerSpritesController : MonoBehaviour
     
     private void ChangeSpritesList(Helpers.FacingDirection facingDirection, Helpers.PlayerCurrentState state)
     {
-        _baseSpriteState.Sprites = _baseSpriteDataSO.GetCurrentStateSprites(facingDirection, state);
-        _baseSpriteState.Reset();
-        _baseSpriteSpriteRenderer.sprite = _baseSpriteState.Sprites[0];
-        _baseSpriteState.UpdateRate = _baseSpriteDataSO.GetSpriteUpdateRate(state);
+        if(_baseSpriteAnimation.IsActive)
+            _baseSpriteAnimation.SetData(_baseSpriteSpriteRenderer, _baseSpriteDataSO, facingDirection, state);
         
-        _bodySpriteState.Sprites = _equippedBodySpriteDataSO.GetCurrentStateSprites(facingDirection, state);
-        _bodySpriteState.Reset();
-        _bodySpriteSpriteRenderer.sprite = _bodySpriteState.Sprites[0];
-        _bodySpriteState.UpdateRate = _equippedBodySpriteDataSO.GetSpriteUpdateRate(state);
+        if(_bodySpriteAnimation.IsActive)
+            _bodySpriteAnimation.SetData(_bodySpriteSpriteRenderer, _equippedBodySpriteDataSO, facingDirection, state);
+        
+        if(_headSpriteAnimation.IsActive)
+            _headSpriteAnimation.SetData(_headSpriteSpriteRenderer, _equippedHeadSpriteDataSO, facingDirection, state);
+        
+        if(_hatSpriteAnimation.IsActive)
+            _hatSpriteAnimation.SetData(_hatSpriteSpriteRenderer, _equippedHatSpriteDataSO, facingDirection, state);
     }
 
-    class SpriteState
+    class SpriteAnimation
     {
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = false;
         public List<Sprite> Sprites { get; set; }
         public float UpdateRate { get; set; }
         public int CurrentSpriteIndex { get; set; }
         public float Time { get; set; }
 
-        public SpriteState(List<Sprite> spritesList, float updateRate, bool isActive = true, int index = 0, float time = 0)
+        public SpriteAnimation(List<Sprite> spritesList, float updateRate, bool isActive = true, int index = 0, float time = 0)
         {
             this.Sprites = spritesList;
             this.UpdateRate = updateRate;
@@ -155,6 +142,17 @@ public class PlayerSpritesController : MonoBehaviour
             this.IsActive = true;
         }
 
+        public void SetData(SpriteRenderer spriteRenderer, SSpriteData spriteDataSO, Helpers.FacingDirection facingDirection,
+                                Helpers.PlayerCurrentState playerState)
+        {
+            if (!IsActive) return;
+        
+            Sprites = spriteDataSO.GetCurrentStateSprites(facingDirection, playerState);
+            Reset();
+            spriteRenderer.sprite = Sprites[0];
+            UpdateRate = spriteDataSO.GetSpriteUpdateRate(playerState);
+        }
+        
         public void Reset()
         {
             this.CurrentSpriteIndex = Sprites.Count > 1 ? 1 : 0;

@@ -1278,7 +1278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runEast
+      name: runEast1
       rect:
         serializedVersion: 2
         x: 448
@@ -1509,8 +1509,8 @@ TextureImporter:
       idleNorth: -784285924
       idleSouth: 1171295465
       idleWest: 2107495209
-      runEast: -552571517
       runEast0: 2066632826
+      runEast1: -552571517
       runNorth0: 673673237
       runNorth1: 616455880
       runSouth0: -1932098408

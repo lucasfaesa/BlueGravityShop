@@ -54,8 +54,8 @@ MonoBehaviour:
     - {fileID: 537039980, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
     - {fileID: -1696321406, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
     runningSprites:
-    - {fileID: -552571517, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
     - {fileID: 2066632826, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
+    - {fileID: -552571517, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
   - facingDirection: 3
     idleSprites:
     - {fileID: 2107495209, guid: 89dbf401ce21a27469f63805a5e3cf4a, type: 3}
