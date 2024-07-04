@@ -272,7 +272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 69608270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: FaceNorth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &69608270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,7 +732,7 @@ GameObject:
   - component: {fileID: 565598915}
   - component: {fileID: 565598914}
   m_Layer: 5
-  m_Name: BT_West
+  m_Name: BT_East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -789,7 +801,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 565598915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: FaceEast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &565598915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +999,7 @@ GameObject:
   - component: {fileID: 773326591}
   - component: {fileID: 773326590}
   m_Layer: 5
-  m_Name: BT_East
+  m_Name: BT_West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1044,7 +1068,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 773326591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: FaceWest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &773326591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,7 +1335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1142533108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: ToIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1142533108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,7 +1468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1280527703}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: FaceSouth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1280527703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1675,7 +1735,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1361195670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: ToRun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1361195670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1796,7 +1868,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1467167418}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+        m_TargetAssemblyTypeName: SPlayerEvents, Assembly-CSharp
+        m_MethodName: ToWalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1467167418
 MonoBehaviour:
   m_ObjectHideFlags: 0

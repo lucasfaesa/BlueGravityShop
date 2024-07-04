@@ -18,4 +18,41 @@ public class SPlayerEvents : ScriptableObject
     {
         PlayerCurrentStateChanged?.Invoke(state);
     }
+    
+    
+    
+    #region Debug Methods
+
+    public void FaceNorth()
+    {
+        OnFacingDirectionChanged(Helpers.FacingDirection.NORTH);
+    }
+    public void FaceSouth()
+    {
+        OnFacingDirectionChanged(Helpers.FacingDirection.SOUTH);
+    }
+    public void FaceEast()
+    {
+        OnFacingDirectionChanged(Helpers.FacingDirection.EAST);
+    }
+    public void FaceWest()
+    {
+        OnFacingDirectionChanged(Helpers.FacingDirection.WEST);
+    }
+    
+    public void ToIdle()
+    {
+        OnPlayerCurrentStateChanged(Helpers.PlayerCurrentState.IDLE);
+    }
+    public void ToWalk()
+    {
+        OnPlayerCurrentStateChanged(Helpers.PlayerCurrentState.WALKING);
+    }
+    public void ToRun()
+    {
+        OnPlayerCurrentStateChanged(Helpers.PlayerCurrentState.RUNNING);
+    }
+
+
+    #endregion
 }

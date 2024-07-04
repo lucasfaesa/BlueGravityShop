@@ -52,27 +52,13 @@ public class PlayerSpritesController : MonoBehaviour
 
     private void UpdateCurrentSprite()
     {
-       /* _time += Time.deltaTime;
-
-        if (_time >= _baseSpriteData.GetSpriteUpdateRate())
-        {
-
-            _baseSpriteSpriteRenderer.sprite = baseSprites[_currentSprite];
-            
-            _time = 0;
-
-            _currentSprite++;
-            
-            if (_currentSprite > baseSprites.Count - 1)
-                _currentSprite = 0;
-        }*/
        UpdateBaseSprite();
     }
 
     private void UpdateBaseSprite()
     {
         baseSpriteState.time += Time.deltaTime;
-
+        
         if (baseSpriteState.time >= baseSpriteState.updateRate)
         {
             _baseSpriteSpriteRenderer.sprite = baseSpriteState.sprites[baseSpriteState.currentSpriteIndex];
@@ -89,7 +75,7 @@ public class PlayerSpritesController : MonoBehaviour
     private void OnPlayerDirectionChanged(Helpers.FacingDirection direction)
     {
         _facingDirection = direction;
-
+        
         ChangeSpritesList(_facingDirection, _playerCurrentState);
     }
     
@@ -103,10 +89,12 @@ public class PlayerSpritesController : MonoBehaviour
     
     private void ChangeSpritesList(Helpers.FacingDirection facingDirection, Helpers.PlayerCurrentState state)
     {
-       // baseSprites = _baseSpriteData.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
+        baseSpriteState.sprites = _baseSpriteData.GetCurrentStateSprites(facingDirection, state);
+        baseSpriteState.Reset();
+        _baseSpriteSpriteRenderer.sprite = baseSpriteState.sprites[0];
     }
 
-    struct SpriteState
+    class SpriteState
     {
         public List<Sprite> sprites;
         public float updateRate;
@@ -120,16 +108,11 @@ public class PlayerSpritesController : MonoBehaviour
             this.currentSpriteIndex = index;
             this.time = time;
         }
+
+        public void Reset()
+        {
+            this.currentSpriteIndex = sprites.Count > 1 ? 1 : 0;
+            this.time = 0;
+        }
     }
-    
-
-
-    #region Debug Methods
-
-    public void FaceNorth()
-    {
-        
-    }
-
-    #endregion
 }

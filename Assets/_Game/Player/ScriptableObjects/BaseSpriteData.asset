@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BaseSpriteData
   m_EditorClassIdentifier: 
   _equipmentType: 0
-  _updateSpeed: 0.3
+  _updateRate: 0.2
   spritesBlocks:
   - facingDirection: 0
     idleSprites:
