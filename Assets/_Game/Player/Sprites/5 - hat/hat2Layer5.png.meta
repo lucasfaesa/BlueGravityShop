@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hat2Layer5_0
+      name: idleSouth
       rect:
         serializedVersion: 2
         x: 0
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hat2Layer5_8
+      name: idleNorth
       rect:
         serializedVersion: 2
         x: 0
@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hat2Layer5_16
+      name: idleEast
       rect:
         serializedVersion: 2
         x: 0
@@ -627,7 +627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hat2Layer5_24
+      name: idleWest
       rect:
         serializedVersion: 2
         x: 0
@@ -1477,7 +1477,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hat2Layer5_0: -1759901344
       hat2Layer5_1: 332846973
       hat2Layer5_10: -1662124217
       hat2Layer5_11: -477509067
@@ -1485,7 +1484,6 @@ TextureImporter:
       hat2Layer5_13: 1721382901
       hat2Layer5_14: -1320030662
       hat2Layer5_15: 478777682
-      hat2Layer5_16: 2121825858
       hat2Layer5_17: 577133166
       hat2Layer5_18: 449930603
       hat2Layer5_19: 1240839037
@@ -1494,7 +1492,6 @@ TextureImporter:
       hat2Layer5_21: 1156713641
       hat2Layer5_22: -532970803
       hat2Layer5_23: -993368028
-      hat2Layer5_24: 2073505104
       hat2Layer5_25: -2124177375
       hat2Layer5_26: -120577243
       hat2Layer5_27: -878183182
@@ -1507,8 +1504,11 @@ TextureImporter:
       hat2Layer5_5: 642522840
       hat2Layer5_6: 1910457316
       hat2Layer5_7: -602422022
-      hat2Layer5_8: 997656536
       hat2Layer5_9: -1798785569
+      idleEast: 2121825858
+      idleNorth: 997656536
+      idleSouth: -1759901344
+      idleWest: 2073505104
       runEast0: 1536506344
       runEast1: 248964529
       runNorth0: 2108313129

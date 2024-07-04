@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hair2Layer4_0
+      name: idleSouth
       rect:
         serializedVersion: 2
         x: 0
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hair2Layer4_8
+      name: idleNorth
       rect:
         serializedVersion: 2
         x: 0
@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hair2Layer4_16
+      name: idleEast
       rect:
         serializedVersion: 2
         x: 0
@@ -627,7 +627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hair2Layer4_24
+      name: idleWest
       rect:
         serializedVersion: 2
         x: 0
@@ -1477,7 +1477,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hair2Layer4_0: -1746514849
       hair2Layer4_1: 2059384633
       hair2Layer4_10: -901880771
       hair2Layer4_11: -855666040
@@ -1485,7 +1484,6 @@ TextureImporter:
       hair2Layer4_13: 48111898
       hair2Layer4_14: 1386342774
       hair2Layer4_15: 1740325079
-      hair2Layer4_16: -1542745632
       hair2Layer4_17: -1953512053
       hair2Layer4_18: 948071349
       hair2Layer4_19: 1900646256
@@ -1494,7 +1492,6 @@ TextureImporter:
       hair2Layer4_21: 1999795377
       hair2Layer4_22: -354485316
       hair2Layer4_23: 352853028
-      hair2Layer4_24: 607429259
       hair2Layer4_25: -1611583889
       hair2Layer4_26: 1678910342
       hair2Layer4_27: -1682853958
@@ -1507,8 +1504,11 @@ TextureImporter:
       hair2Layer4_5: -121299955
       hair2Layer4_6: -961917033
       hair2Layer4_7: 722648318
-      hair2Layer4_8: -943013660
       hair2Layer4_9: -1981001713
+      idleEast: -1542745632
+      idleNorth: -943013660
+      idleSouth: -1746514849
+      idleWest: 607429259
       runEast0: -1353211271
       runEast1: -1466319971
       runNorth0: 243303547

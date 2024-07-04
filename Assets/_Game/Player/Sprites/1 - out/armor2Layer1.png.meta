@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: armor2Layer1_0
+      name: idleSouth
       rect:
         serializedVersion: 2
         x: 0
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armor2Layer1_8
+      name: idleNorth
       rect:
         serializedVersion: 2
         x: 0
@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armor2Layer1_16
+      name: idleEast
       rect:
         serializedVersion: 2
         x: 0
@@ -627,11 +627,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armor2Layer1_24
+      name: idleWest
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 257
         width: 64
         height: 64
       alignment: 0
@@ -1477,7 +1477,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      armor2Layer1_0: -1487696440
       armor2Layer1_1: -769741861
       armor2Layer1_10: -729542783
       armor2Layer1_11: -1312263891
@@ -1485,7 +1484,6 @@ TextureImporter:
       armor2Layer1_13: -1593600440
       armor2Layer1_14: -302033651
       armor2Layer1_15: 1782577455
-      armor2Layer1_16: 1518801987
       armor2Layer1_17: -1229448846
       armor2Layer1_18: 590767953
       armor2Layer1_19: 2008858168
@@ -1494,7 +1492,6 @@ TextureImporter:
       armor2Layer1_21: -1375333483
       armor2Layer1_22: 945219968
       armor2Layer1_23: -178573821
-      armor2Layer1_24: 188683913
       armor2Layer1_25: 1379197200
       armor2Layer1_26: -456120071
       armor2Layer1_27: 1212199433
@@ -1507,8 +1504,11 @@ TextureImporter:
       armor2Layer1_5: 1832437438
       armor2Layer1_6: 1641547769
       armor2Layer1_7: 1648085548
-      armor2Layer1_8: 977595108
       armor2Layer1_9: 337913026
+      idleEast: 1518801987
+      idleNorth: 977595108
+      idleSouth: -1487696440
+      idleWest: 188683913
       runEast0: 1739083941
       runEast1: -2048990375
       runNorth0: -279092344

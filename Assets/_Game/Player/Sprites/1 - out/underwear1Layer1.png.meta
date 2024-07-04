@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: underwear1Layer1_0
+      name: idleSouth
       rect:
         serializedVersion: 2
         x: 0
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear1Layer1_8
+      name: idleNorth
       rect:
         serializedVersion: 2
         x: 0
@@ -459,11 +459,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear1Layer1_16
+      name: idleEast
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 321
         width: 64
         height: 64
       alignment: 0
@@ -627,7 +627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear1Layer1_24
+      name: idleWest
       rect:
         serializedVersion: 2
         x: 0
@@ -1477,6 +1477,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      idleEast: 1773529407
+      idleNorth: 830094524
+      idleSouth: -717463114
+      idleWest: -800868757
       runEast0: 76575079
       runEast1: -373720768
       runNorth0: -357360838
@@ -1485,7 +1489,6 @@ TextureImporter:
       runSouth1: -957935967
       runWest0: -1943405443
       runWest1: -953008396
-      underwear1Layer1_0: -717463114
       underwear1Layer1_1: -1190096756
       underwear1Layer1_10: 1232059514
       underwear1Layer1_11: -1283955711
@@ -1493,7 +1496,6 @@ TextureImporter:
       underwear1Layer1_13: 569523570
       underwear1Layer1_14: 1677770042
       underwear1Layer1_15: 1678608939
-      underwear1Layer1_16: 1773529407
       underwear1Layer1_17: -407412423
       underwear1Layer1_18: 1285546108
       underwear1Layer1_19: -802753115
@@ -1502,7 +1504,6 @@ TextureImporter:
       underwear1Layer1_21: -2081350374
       underwear1Layer1_22: -365446956
       underwear1Layer1_23: 1438715444
-      underwear1Layer1_24: -800868757
       underwear1Layer1_25: -1731617146
       underwear1Layer1_26: 465150475
       underwear1Layer1_27: -784830084
@@ -1515,7 +1516,6 @@ TextureImporter:
       underwear1Layer1_5: -1028956311
       underwear1Layer1_6: 1103564109
       underwear1Layer1_7: 647774767
-      underwear1Layer1_8: 830094524
       underwear1Layer1_9: 2050471626
       walkEast0: 1767322180
       walkEast1: -1655304613

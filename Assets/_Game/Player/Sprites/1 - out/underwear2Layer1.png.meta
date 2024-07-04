@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: underwear2Layer1_0
+      name: idleSouth
       rect:
         serializedVersion: 2
         x: 0
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear2Layer1_4
+      name: idleNorth
       rect:
         serializedVersion: 2
         x: 0
@@ -375,7 +375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear2Layer1_12
+      name: idleEast
       rect:
         serializedVersion: 2
         x: 0
@@ -543,7 +543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear2Layer1_20
+      name: idleWest
       rect:
         serializedVersion: 2
         x: 0
@@ -1393,6 +1393,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      idleEast: 520612915
+      idleNorth: 1391689891
+      idleSouth: -1113144912
+      idleWest: -1394717229
       runEast0: -622258558
       runEast1: -1108191695
       runNorth0: -1606896567
@@ -1401,11 +1405,9 @@ TextureImporter:
       runSouth1: -597732775
       runWest0: 150221776
       runWest1: -1392668547
-      underwear2Layer1_0: -1113144912
       underwear2Layer1_1: -1277779650
       underwear2Layer1_10: 528345247
       underwear2Layer1_11: 1852391797
-      underwear2Layer1_12: 520612915
       underwear2Layer1_13: -1369613067
       underwear2Layer1_14: -222495200
       underwear2Layer1_15: -1781258188
@@ -1414,7 +1416,6 @@ TextureImporter:
       underwear2Layer1_18: 97688074
       underwear2Layer1_19: 1917141251
       underwear2Layer1_2: 2001865672
-      underwear2Layer1_20: -1394717229
       underwear2Layer1_21: 1901158888
       underwear2Layer1_22: -906328662
       underwear2Layer1_23: -1175050562
@@ -1423,7 +1424,6 @@ TextureImporter:
       underwear2Layer1_26: 282730457
       underwear2Layer1_27: -115007015
       underwear2Layer1_3: 1799683179
-      underwear2Layer1_4: 1391689891
       underwear2Layer1_5: -2120012746
       underwear2Layer1_6: -107729520
       underwear2Layer1_7: 1572125566

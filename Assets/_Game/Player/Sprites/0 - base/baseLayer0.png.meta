@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: baseLayer0_0
+      name: idleSouth
       rect:
         serializedVersion: 2
         x: 0
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: baseLayer0_8
+      name: idleNorth
       rect:
         serializedVersion: 2
         x: 0
@@ -459,7 +459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: baseLayer0_16
+      name: idleEast
       rect:
         serializedVersion: 2
         x: 0
@@ -627,11 +627,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: baseLayer0_24
+      name: idleWest
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 257
         width: 64
         height: 64
       alignment: 0
@@ -1477,7 +1477,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      baseLayer0_0: -58965799
       baseLayer0_1: -565961592
       baseLayer0_10: 786076877
       baseLayer0_11: -1267823767
@@ -1485,7 +1484,6 @@ TextureImporter:
       baseLayer0_13: 1097172668
       baseLayer0_14: 275597936
       baseLayer0_15: 1383009554
-      baseLayer0_16: -1537617143
       baseLayer0_17: 2062536835
       baseLayer0_18: -1926931611
       baseLayer0_19: 1472599919
@@ -1494,7 +1492,6 @@ TextureImporter:
       baseLayer0_21: 1143387183
       baseLayer0_22: 231808390
       baseLayer0_23: -1238202027
-      baseLayer0_24: 1363116992
       baseLayer0_25: 2096388209
       baseLayer0_26: 486804603
       baseLayer0_27: 1861208934
@@ -1507,8 +1504,11 @@ TextureImporter:
       baseLayer0_5: 938659877
       baseLayer0_6: -837588914
       baseLayer0_7: -1719529928
-      baseLayer0_8: 2006047109
       baseLayer0_9: 215063499
+      idleEast: -1537617143
+      idleNorth: 2006047109
+      idleSouth: -58965799
+      idleWest: 1363116992
       runEast0: 629499955
       runEast1: -838856644
       runNorth0: 1689317918
