@@ -719,6 +719,12 @@ MonoBehaviour:
   playerEvents: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
   _baseSpriteSpriteRenderer: {fileID: 1724472471}
   _baseSpriteDataSO: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
+  _bodySpriteSpriteRenderer: {fileID: 1850346056}
+  _equippedBodySpriteDataSO: {fileID: 11400000, guid: ce77b39bfd6536e4797105ffa6c86d72, type: 2}
+  _headSpriteSpriteRenderer: {fileID: 917148318}
+  _equippedHeadSpriteDataSO: {fileID: 11400000, guid: f56b17c5b77baea409c0e28fd682874b, type: 2}
+  _hatSpriteSpriteRenderer: {fileID: 1945496781}
+  _equippedHatSpriteDataSO: {fileID: 11400000, guid: 403bf2562809c2a46a3bfccf5afb1263, type: 2}
 --- !u!1 &565598912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1125,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773326588}
   m_CullTransparentMesh: 1
+--- !u!212 &917148318 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4447509924077313945, guid: 63db1c4f1968f4448b09e296fa3dc570, type: 3}
+  m_PrefabInstance: {fileID: 8785455877979088730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1101938213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2234,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785198365}
   m_CullTransparentMesh: 1
+--- !u!212 &1850346056 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4808142013192835571, guid: 63db1c4f1968f4448b09e296fa3dc570, type: 3}
+  m_PrefabInstance: {fileID: 8785455877979088730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1945496781 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5994386759755450239, guid: 63db1c4f1968f4448b09e296fa3dc570, type: 3}
+  m_PrefabInstance: {fileID: 8785455877979088730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131424240
 GameObject:
   m_ObjectHideFlags: 0

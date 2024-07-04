@@ -8,9 +8,18 @@ public class PlayerSpritesController : MonoBehaviour
     [Header("SO's")] 
     [SerializeField] private SPlayerEvents playerEvents;
     
-    [Header("Base Sprite")] 
+    [Header("Base Related")] 
     [SerializeField] private SpriteRenderer _baseSpriteSpriteRenderer;
     [SerializeField] private SSpriteData _baseSpriteDataSO;
+    [Header("Body Related")] 
+    [SerializeField] private SpriteRenderer _bodySpriteSpriteRenderer;
+    [SerializeField] private SSpriteData _equippedBodySpriteDataSO; //TODO remove from serialized field
+    [Header("Head Related")] 
+    [SerializeField] private SpriteRenderer _headSpriteSpriteRenderer;
+    [SerializeField] private SSpriteData _equippedHeadSpriteDataSO;
+    [Header("Hat Related")] 
+    [SerializeField] private SpriteRenderer _hatSpriteSpriteRenderer;
+    [SerializeField] private SSpriteData _equippedHatSpriteDataSO;
 
     private Helpers.FacingDirection _facingDirection = Helpers.FacingDirection.SOUTH;
     private Helpers.PlayerCurrentState _playerCurrentState = Helpers.PlayerCurrentState.WALKING;
@@ -38,8 +47,18 @@ public class PlayerSpritesController : MonoBehaviour
     void Start()
     {
         //base
-        List<Sprite> sprites = _baseSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
-        _baseSpriteState = new SpriteState(sprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        List<Sprite> baseSprites = _baseSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
+        _baseSpriteState = new SpriteState(baseSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        
+        //TODO REMOVE LATER
+        List<Sprite> bodySprites = _equippedBodySpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
+        _bodySpriteState = new SpriteState(bodySprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        
+        List<Sprite> headSprites = _equippedHeadSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
+        _headSpriteState = new SpriteState(headSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
+        
+        List<Sprite> hatSprites = _equippedHatSpriteDataSO.GetCurrentStateSprites(_facingDirection, _playerCurrentState);
+        _hatSpriteState = new SpriteState(hatSprites, _baseSpriteDataSO.GetSpriteUpdateRate(_playerCurrentState));
     }
     
     void Update()
@@ -52,23 +71,42 @@ public class PlayerSpritesController : MonoBehaviour
 
     private void UpdateCurrentSprite()
     {
+        
        UpdateBaseSprite();
+       UpdateBodySprite();
     }
 
     private void UpdateBaseSprite()
     {
-        _baseSpriteState.time += Time.deltaTime;
+        _baseSpriteState.Time += Time.deltaTime;
         
-        if (_baseSpriteState.time >= _baseSpriteState.updateRate)
+        if (_baseSpriteState.Time >= _baseSpriteState.UpdateRate)
         {
-            _baseSpriteSpriteRenderer.sprite = _baseSpriteState.sprites[_baseSpriteState.currentSpriteIndex];
+            _baseSpriteSpriteRenderer.sprite = _baseSpriteState.Sprites[_baseSpriteState.CurrentSpriteIndex];
 
-            _baseSpriteState.time = 0;
+            _baseSpriteState.Time = 0;
 
-            _baseSpriteState.currentSpriteIndex++; 
+            _baseSpriteState.CurrentSpriteIndex++; 
             
-            if (_baseSpriteState.currentSpriteIndex > _baseSpriteState.sprites.Count - 1)
-                _baseSpriteState.currentSpriteIndex = 0;
+            if (_baseSpriteState.CurrentSpriteIndex > _baseSpriteState.Sprites.Count - 1)
+                _baseSpriteState.CurrentSpriteIndex = 0;
+        }
+    }
+
+    private void UpdateBodySprite()
+    {
+        _bodySpriteState.Time += Time.deltaTime;
+        
+        if (_bodySpriteState.Time >= _bodySpriteState.UpdateRate)
+        {
+            _bodySpriteSpriteRenderer.sprite = _bodySpriteState.Sprites[_bodySpriteState.CurrentSpriteIndex];
+
+            _bodySpriteState.Time = 0;
+
+            _bodySpriteState.CurrentSpriteIndex++; 
+            
+            if (_bodySpriteState.CurrentSpriteIndex > _bodySpriteState.Sprites.Count - 1)
+                _bodySpriteState.CurrentSpriteIndex = 0;
         }
     }
 
@@ -89,31 +127,38 @@ public class PlayerSpritesController : MonoBehaviour
     
     private void ChangeSpritesList(Helpers.FacingDirection facingDirection, Helpers.PlayerCurrentState state)
     {
-        _baseSpriteState.sprites = _baseSpriteDataSO.GetCurrentStateSprites(facingDirection, state);
+        _baseSpriteState.Sprites = _baseSpriteDataSO.GetCurrentStateSprites(facingDirection, state);
         _baseSpriteState.Reset();
-        _baseSpriteSpriteRenderer.sprite = _baseSpriteState.sprites[0];
-        _baseSpriteState.updateRate = _baseSpriteDataSO.GetSpriteUpdateRate(state);
+        _baseSpriteSpriteRenderer.sprite = _baseSpriteState.Sprites[0];
+        _baseSpriteState.UpdateRate = _baseSpriteDataSO.GetSpriteUpdateRate(state);
+        
+        _bodySpriteState.Sprites = _equippedBodySpriteDataSO.GetCurrentStateSprites(facingDirection, state);
+        _bodySpriteState.Reset();
+        _bodySpriteSpriteRenderer.sprite = _bodySpriteState.Sprites[0];
+        _bodySpriteState.UpdateRate = _equippedBodySpriteDataSO.GetSpriteUpdateRate(state);
     }
 
     class SpriteState
     {
-        public List<Sprite> sprites;
-        public float updateRate;
-        public int currentSpriteIndex;
-        public float time;
+        public bool IsActive { get; set; }
+        public List<Sprite> Sprites { get; set; }
+        public float UpdateRate { get; set; }
+        public int CurrentSpriteIndex { get; set; }
+        public float Time { get; set; }
 
-        public SpriteState(List<Sprite> spritesList, float updateRate, int index = 0, float time = 0)
+        public SpriteState(List<Sprite> spritesList, float updateRate, bool isActive = true, int index = 0, float time = 0)
         {
-            this.sprites = spritesList;
-            this.updateRate = updateRate;
-            this.currentSpriteIndex = index;
-            this.time = time;
+            this.Sprites = spritesList;
+            this.UpdateRate = updateRate;
+            this.CurrentSpriteIndex = index;
+            this.Time = time;
+            this.IsActive = true;
         }
 
         public void Reset()
         {
-            this.currentSpriteIndex = sprites.Count > 1 ? 1 : 0;
-            this.time = 0;
+            this.CurrentSpriteIndex = Sprites.Count > 1 ? 1 : 0;
+            this.Time = 0;
         }
     }
 }

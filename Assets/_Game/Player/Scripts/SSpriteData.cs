@@ -32,18 +32,18 @@ public class SSpriteData : ScriptableObject
         {
             case Helpers.PlayerCurrentState.IDLE:
                 return GetSpriteBlockByDirection(direction).idleSprites;
-            break;
+            
             case Helpers.PlayerCurrentState.WALKING:
                 return GetSpriteBlockByDirection(direction).walkingSprites;
-            break;
+            
             case Helpers.PlayerCurrentState.RUNNING:
                 return GetSpriteBlockByDirection(direction).runningSprites;
-            break;
+            
 
             default:
                 Debug.LogError("Error, trying to get inexistent state");
                 return GetSpriteBlockByDirection(direction).idleSprites;
-            break;
+            
                 
         }
     }
@@ -60,18 +60,18 @@ public class SSpriteData : ScriptableObject
         {
             case Helpers.PlayerCurrentState.IDLE:
                 return _idleUpdateRate;
-                break;
+                
             case Helpers.PlayerCurrentState.WALKING:
                 return _walkUpdateRate;
-                break;
+                
             case Helpers.PlayerCurrentState.RUNNING:
                 return _runUpdateRate;
-                break;
+                
 
             default:
                 Debug.LogError("Error, trying to get inexistent state");
                 return _idleUpdateRate;
-                break;
+                
         }
     }
 
