@@ -14,4 +14,9 @@ public class EquipItem : MonoBehaviour
     {
         _playerEvents.OnCurrentEquipmentChanged(_spriteDataSO);
     }
+
+    public void UnequipItem()
+    {
+        _playerEvents.OnEquipmentRemove(_spriteDataSO.GetEquipmentType());
+    }
 }

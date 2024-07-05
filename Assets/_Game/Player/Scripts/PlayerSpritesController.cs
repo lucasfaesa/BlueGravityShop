@@ -40,6 +40,7 @@ public class PlayerSpritesController : MonoBehaviour
         playerEvents.FacingDirectionChanged += OnPlayerDirectionChanged;
         playerEvents.PlayerCurrentStateChanged += OnPlayerCurrentStateChanged;
         playerEvents.CurrentEquipmentChanged += OnEquipmentChanged;
+        playerEvents.CurrentEquipmentRemoved += OnEquipmentRemoved;
     }
 
     private void OnDisable()
@@ -47,6 +48,7 @@ public class PlayerSpritesController : MonoBehaviour
         playerEvents.FacingDirectionChanged -= OnPlayerDirectionChanged;
         playerEvents.PlayerCurrentStateChanged -= OnPlayerCurrentStateChanged;
         playerEvents.CurrentEquipmentChanged -= OnEquipmentChanged;
+        playerEvents.CurrentEquipmentRemoved -= OnEquipmentRemoved;
     }
 
     void Start()
@@ -167,6 +169,28 @@ public class PlayerSpritesController : MonoBehaviour
         if(_hatSpriteAnimation.IsActive)
             _hatSpriteAnimation.Reset(_hatSpriteSpriteRenderer);
     }
+
+    private void OnEquipmentRemoved(Helpers.EquipmentType type)
+    {
+        switch (type)
+        {
+            case Helpers.EquipmentType.BASE:
+                _baseSpriteAnimation.Deactivate(_baseSpriteSpriteRenderer);
+                break;
+            case Helpers.EquipmentType.BODY:
+                _bodySpriteAnimation.Deactivate(_bodySpriteSpriteRenderer);
+                break;
+            case Helpers.EquipmentType.HEAD:
+                _headSpriteAnimation.Deactivate(_headSpriteSpriteRenderer);
+                break;
+            case Helpers.EquipmentType.HAT:
+                _hatSpriteAnimation.Deactivate(_hatSpriteSpriteRenderer);
+                break;
+            default:
+                Debug.LogError("Nonexistent equipment type");
+                break;
+        }
+    }
     
     class SpriteAnimation
     {
@@ -197,6 +221,12 @@ public class PlayerSpritesController : MonoBehaviour
             UpdateRate = spriteDataSO.GetSpriteUpdateRate(playerState);
             Reset(spriteRenderer);
             this.IsActive = true;
+        }
+
+        public void Deactivate(SpriteRenderer renderer)
+        {
+            IsActive = false;
+            renderer.sprite = null;
         }
         
         public void Reset(SpriteRenderer spriteRenderer)
