@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEvents: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
   _baseSpriteSpriteRenderer: {fileID: 8098834647915906678}
-  _equippedBaseSpriteDataSO: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
+  equippedBaseEquipmentDataSo: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
   _bodySpriteSpriteRenderer: {fileID: 4808142013192835571}
   _headSpriteSpriteRenderer: {fileID: 4447509924077313945}
   _hatSpriteSpriteRenderer: {fileID: 5994386759755450239}

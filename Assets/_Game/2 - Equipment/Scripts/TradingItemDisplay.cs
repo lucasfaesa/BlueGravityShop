@@ -6,14 +6,31 @@ using UnityEngine.UI;
 
 public class TradingItemDisplay : MonoBehaviour
 {
-    [SerializeField] private Image equipmentThumbnail;
-    [SerializeField] private TextMeshProUGUI equipmentName;
-    [SerializeField] private TextMeshProUGUI equipmentPrice;
+    [SerializeField] private STradingEvents _tradingEventsSo;
+    [Space]
+    [SerializeField] private Image _equipmentThumbnail;
+    [SerializeField] private TextMeshProUGUI _equipmentName;
+    [SerializeField] private TextMeshProUGUI _equipmentPrice;
+    [SerializeField] private TextMeshProUGUI _buttonText;
+
+    private int value;
+    private bool isPlayerWindow;
     
-    public void SetData(Sprite thumb, string name, string price)
+    public void SetData(Sprite thumb, string name, int price, bool isPlayerWindow)
     {
-        equipmentThumbnail.sprite = thumb;
-        equipmentName.text = name;
-        equipmentPrice.text = $"{price} z";
+        _equipmentThumbnail.sprite = thumb;
+        _equipmentName.text = name;
+        _equipmentPrice.text = $"{price} z";
+        _buttonText.text = isPlayerWindow ? "SELL" : "BUY";
+        value = price;
+        this.isPlayerWindow = isPlayerWindow;
+    }
+
+    public void FinishTransaction()
+    {
+        if(isPlayerWindow)
+            _tradingEventsSo.OnEquipmentSold(value);
+        else
+            _tradingEventsSo.OnEquipmentBought(value);
     }
 }
