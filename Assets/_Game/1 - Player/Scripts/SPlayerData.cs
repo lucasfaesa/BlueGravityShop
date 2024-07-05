@@ -23,18 +23,22 @@ public class SPlayerData : ScriptableObject
         return bodyEquipment;
     }
     
-    
-    public void SetHeadEquippedItem(SEquipmentData data)
+    public void EquipItem(SEquipmentData data)
     {
-        headEquipment = data;
-    }
-    public void SetHatEquippedItem(SEquipmentData data)
-    {
-        hatEquipment = data;
-    }
-    public void SetBodyEquippedItem(SEquipmentData data)
-    {
-        bodyEquipment = data;
+        switch (data.GetEquipmentType())
+        {
+            case Helpers.EquipmentType.HEAD:
+                headEquipment = data;
+                break;
+            case Helpers.EquipmentType.HAT:
+                hatEquipment = data;
+                break;
+            case Helpers.EquipmentType.BODY:
+                bodyEquipment = data;
+                break;
+        }
+        
+        data.SetCurrentlyEquipped(true);
     }
     
     public void UnequipItem(SEquipmentData data)
@@ -52,5 +56,6 @@ public class SPlayerData : ScriptableObject
                 break;
         }
         
+        data.SetCurrentlyEquipped(false);
     }
 }

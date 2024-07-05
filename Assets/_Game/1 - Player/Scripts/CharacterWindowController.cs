@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterWindowController : MonoBehaviour
 {
     [Header("SOs")] 
+    [SerializeField] private STradingEvents _tradingEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
     [SerializeField] private SPlayerData _playerData;
     

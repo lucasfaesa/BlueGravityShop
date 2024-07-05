@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a0bbe7cb3d8bf43b37bd42403d1d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tradingEvents: {fileID: 11400000, guid: 0db669e460a850e4d9ac56813516dc9f, type: 2}
   equipmentEvents: {fileID: 11400000, guid: 7960943042ab4c049a5f2aacdef6d116, type: 2}
   _playerData: {fileID: 11400000, guid: 09990d51d45de9c47b9b991af3fac057, type: 2}
 --- !u!1 &62245000
