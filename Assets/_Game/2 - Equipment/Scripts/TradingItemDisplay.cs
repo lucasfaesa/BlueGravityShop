@@ -13,30 +13,30 @@ public class TradingItemDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _equipmentPrice;
     [SerializeField] private TextMeshProUGUI _buttonText;
 
-    private int value;
-    private bool isPlayerWindow;
+    private int _value;
+    private bool _isPlayerWindow;
 
-    private SEquipmentData equipment;
+    private SEquipmentData _equipment;
     
-    public void SetData(SEquipmentData equipmentData, bool isPlayerWindow)
+    public void SetData(SEquipmentData equipmentData, bool playerWindow)
     {
-        equipment = equipmentData;
-        _equipmentThumbnail.sprite = equipment.GetEquipmentThumbnail();
-        _equipmentName.text = equipment.GetEquipmentName();
+        _equipment = equipmentData;
+        _equipmentThumbnail.sprite = _equipment.GetEquipmentThumbnail();
+        _equipmentName.text = _equipment.GetEquipmentName();
+        _isPlayerWindow = playerWindow;
 
-        value = isPlayerWindow ? equipment.GetEquipmentDepreciatedValue() : equipment.GetEquipmentBuyValue();
-        _equipmentPrice.text = $"{value} z";
+        _value = playerWindow ? _equipment.GetEquipmentDepreciatedValue() : _equipment.GetEquipmentBuyValue();
+        _equipmentPrice.text = $"{_value} z";
         
-        _buttonText.text = isPlayerWindow ? "SELL" : "BUY";
+        _buttonText.text = playerWindow ? "SELL" : "BUY";
         
-        this.isPlayerWindow = isPlayerWindow;
     }
 
     public void FinishTransaction()
     {
-        if(isPlayerWindow)
-            _tradingEventsSo.OnEquipmentSold(equipment);
+        if(_isPlayerWindow)
+            _tradingEventsSo.OnEquipmentSold(_equipment);
         else
-            _tradingEventsSo.OnEquipmentBought(equipment); //TODO check if the player has the money
+            _tradingEventsSo.OnTryingToBuyEquipment(_equipment);
     }
 }

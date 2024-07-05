@@ -27,7 +27,7 @@ public class TradingWindowController : MonoBehaviour
     {
         _tradingEventsSo.TradeStarted += OpenShop;
         _tradingEventsSo.TradeEnded += CloseShop;
-        _tradingEventsSo.EquipmentBought += OnEquipmentBought;
+        _tradingEventsSo.TryingToBuyEquipment += OnTryToBuyEquipment;
         _tradingEventsSo.EquipmentSold += OnEquipmentSold;
     }
 
@@ -35,7 +35,7 @@ public class TradingWindowController : MonoBehaviour
     {
         _tradingEventsSo.TradeStarted -= OpenShop;
         _tradingEventsSo.TradeEnded -= CloseShop;
-        _tradingEventsSo.EquipmentBought -= OnEquipmentBought;
+        _tradingEventsSo.TryingToBuyEquipment -= OnTryToBuyEquipment;
         _tradingEventsSo.EquipmentSold -= OnEquipmentSold;
     }
     
@@ -111,10 +111,15 @@ public class TradingWindowController : MonoBehaviour
         }
     }
 
-    private void OnEquipmentBought(SEquipmentData equipmentData)
+    private void OnTryToBuyEquipment(SEquipmentData equipmentData)
     {
+        if (!_playerInventory.HasGold(equipmentData.GetEquipmentBuyValue()))
+            return;
+        
         npcCharacterInventory.RemoveEquipment(equipmentData);
         _playerInventory.AddEquipment(equipmentData);
+
+        _playerInventory.SpendGold(equipmentData.GetEquipmentBuyValue());
         
         RefreshShop(npcCharacterInventory);
     }
@@ -123,6 +128,8 @@ public class TradingWindowController : MonoBehaviour
     {
         npcCharacterInventory.AddEquipment(equipmentData);
         _playerInventory.RemoveEquipment(equipmentData);
+
+        _playerInventory.AddGold(equipmentData.GetEquipmentDepreciatedValue());
         
         RefreshShop(npcCharacterInventory);
     }
