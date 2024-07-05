@@ -6,10 +6,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "ScriptableObjects/Player/PlayerData")]
 public class SPlayerData : ScriptableObject
 {
+    [Header("Status Related")] 
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 10f;
+    
+    [Header("Equipment Related")]
     [SerializeField] private SEquipmentData headEquipment;
     [SerializeField] private SEquipmentData hatEquipment;
     [SerializeField] private SEquipmentData bodyEquipment;
 
+    public float GetSpeed(bool sprinting)
+    {
+        return sprinting ? sprintSpeed : walkSpeed;
+    }
+    
+    
     public SEquipmentData GetHeadEquippedItem()
     {
         return headEquipment;
