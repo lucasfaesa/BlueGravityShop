@@ -8,6 +8,7 @@ public class SPlayerEvents : ScriptableObject
 {
     public event Action<Helpers.FacingDirection> FacingDirectionChanged;
     public event Action<Helpers.PlayerCurrentState> PlayerCurrentStateChanged;
+    public event Action<SSpriteData> CurrentEquipmentChanged;
 
     public void OnFacingDirectionChanged(Helpers.FacingDirection direction)
     {
@@ -17,6 +18,11 @@ public class SPlayerEvents : ScriptableObject
     public void OnPlayerCurrentStateChanged(Helpers.PlayerCurrentState state)
     {
         PlayerCurrentStateChanged?.Invoke(state);
+    }
+
+    public void OnCurrentEquipmentChanged(SSpriteData spriteData)
+    {
+        CurrentEquipmentChanged?.Invoke(spriteData);
     }
     
     
