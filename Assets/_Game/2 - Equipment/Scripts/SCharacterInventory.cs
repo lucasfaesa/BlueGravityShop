@@ -13,5 +13,15 @@ public class SCharacterInventory : ScriptableObject
     {
         return equipmentsList;
     }
+
+    public void AddEquipment(SEquipmentData equipmentDataSO)
+    {
+        equipmentsList.Add(equipmentDataSO);
+    }
+
+    public void RemoveEquipment(SEquipmentData equipmentDataSO)
+    {
+        equipmentsList.Remove(equipmentDataSO);
+    }
     
 }

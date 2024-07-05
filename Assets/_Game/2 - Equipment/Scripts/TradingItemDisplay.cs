@@ -15,22 +15,28 @@ public class TradingItemDisplay : MonoBehaviour
 
     private int value;
     private bool isPlayerWindow;
+
+    private SEquipmentData equipment;
     
-    public void SetData(Sprite thumb, string name, int price, bool isPlayerWindow)
+    public void SetData(SEquipmentData equipmentData, bool isPlayerWindow)
     {
-        _equipmentThumbnail.sprite = thumb;
-        _equipmentName.text = name;
-        _equipmentPrice.text = $"{price} z";
+        equipment = equipmentData;
+        _equipmentThumbnail.sprite = equipment.GetEquipmentThumbnail();
+        _equipmentName.text = equipment.GetEquipmentName();
+
+        value = isPlayerWindow ? equipment.GetEquipmentDepreciatedValue() : equipment.GetEquipmentBuyValue();
+        _equipmentPrice.text = $"{value} z";
+        
         _buttonText.text = isPlayerWindow ? "SELL" : "BUY";
-        value = price;
+        
         this.isPlayerWindow = isPlayerWindow;
     }
 
     public void FinishTransaction()
     {
         if(isPlayerWindow)
-            _tradingEventsSo.OnEquipmentSold(value);
+            _tradingEventsSo.OnEquipmentSold(equipment);
         else
-            _tradingEventsSo.OnEquipmentBought(value);
+            _tradingEventsSo.OnEquipmentBought(equipment); //TODO check if the player has the money
     }
 }

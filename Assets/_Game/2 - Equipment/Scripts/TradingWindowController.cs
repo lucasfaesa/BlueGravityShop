@@ -21,37 +21,31 @@ public class TradingWindowController : MonoBehaviour
     private List<TradingItemDisplay> _instantiatedPlayerTradingItemDisplays = new();
     private List<TradingItemDisplay> _instantiatedNpcTradingItemDisplays = new();
 
+    private SCharacterInventory npcCharacterInventory;
+    
     private void OnEnable()
     {
         _tradingEventsSo.TradeStarted += OpenShop;
         _tradingEventsSo.TradeEnded += CloseShop;
+        _tradingEventsSo.EquipmentBought += OnEquipmentBought;
+        _tradingEventsSo.EquipmentSold += OnEquipmentSold;
     }
 
     private void OnDisable()
     {
         _tradingEventsSo.TradeStarted -= OpenShop;
         _tradingEventsSo.TradeEnded -= CloseShop;
+        _tradingEventsSo.EquipmentBought -= OnEquipmentBought;
+        _tradingEventsSo.EquipmentSold -= OnEquipmentSold;
     }
     
-    private void OpenShop(SCharacterInventory npcEquipmentData)
+    private void OpenShop(SCharacterInventory npcInventory)
     {
-        
-        /*if (_playerInventory.GetEquipmentsList().Count > _instantiatedPlayerTradingItemDisplays.Count)
-        {
-            InstantiateTradingItemDisplays(_playerInventory.GetEquipmentsList().Count - _instantiatedPlayerTradingItemDisplays.Count, 
-                                                _playerInventoryPanelContent, true);
-        }
-        
-        if (npcEquipmentData.GetEquipmentsList().Count > _instantiatedNpcTradingItemDisplays.Count)
-        {
-            InstantiateTradingItemDisplays(npcEquipmentData.GetEquipmentsList().Count - _instantiatedNpcTradingItemDisplays.Count,
-                                                _npcInventoryPanelContent, false);
-        }*/
+        npcCharacterInventory = npcInventory;
         
         SetDisplayData(_playerInventory, _instantiatedPlayerTradingItemDisplays, true);
         
-        SetDisplayData(npcEquipmentData, _instantiatedNpcTradingItemDisplays, false);
-        
+        SetDisplayData(npcInventory, _instantiatedNpcTradingItemDisplays, false);
         
         shopWindow.gameObject.SetActive(true);
     }
@@ -60,6 +54,7 @@ public class TradingWindowController : MonoBehaviour
     {
         var equipmentsList = characterInventorySO.GetEquipmentsList();
         
+        //instantiating pool
         if (characterInventorySO.GetEquipmentsList().Count > displayPool.Count)
         {
             InstantiateTradingItemDisplays(equipmentsList.Count - displayPool.Count,
@@ -71,24 +66,39 @@ public class TradingWindowController : MonoBehaviour
         {
             var equipment = equipmentsList[i];
 
-            displayPool[i].SetData(equipment.GetEquipmentThumbnail(), equipment.GetEquipmentName(),
-                                            isPlayerWindow ? equipment.GetEquipmentDepreciatedValue() : equipment.GetEquipmentBuyValue(), 
-                                                isPlayerWindow );
+            displayPool[i].SetData(equipment, isPlayerWindow );
             
             displayPool[i].gameObject.SetActive(true); 
         }
     }
 
+    private void RefreshShop(SCharacterInventory npcInventory)
+    {
+        HideAllEquipmentsDisplay();
+        
+        SetDisplayData(_playerInventory, _instantiatedPlayerTradingItemDisplays, true);
+        
+        SetDisplayData(npcInventory, _instantiatedNpcTradingItemDisplays, false);
+    }
+
     private void CloseShop()
     {
         shopWindow.gameObject.SetActive(false);
+        
+        npcCharacterInventory = null;
 
+        HideAllEquipmentsDisplay();
+    }
+
+    private void HideAllEquipmentsDisplay()
+    {
         _instantiatedPlayerTradingItemDisplays.ForEach(x=>x.gameObject.SetActive(false));
         _instantiatedNpcTradingItemDisplays.ForEach(x=>x.gameObject.SetActive(false));
     }
 
     private void InstantiateTradingItemDisplays(int qty, Transform window, bool playerWindow)
     {
+        
         for (int i = 0; i < qty; i++)
         {
             var instantiatedPrefab = Instantiate(_tradingItemDisplayPrefab, window);
@@ -99,5 +109,21 @@ public class TradingWindowController : MonoBehaviour
             else
                 _instantiatedNpcTradingItemDisplays.Add(instantiatedPrefab);
         }
+    }
+
+    private void OnEquipmentBought(SEquipmentData equipmentData)
+    {
+        npcCharacterInventory.RemoveEquipment(equipmentData);
+        _playerInventory.AddEquipment(equipmentData);
+        
+        RefreshShop(npcCharacterInventory);
+    }
+    
+    private void OnEquipmentSold(SEquipmentData equipmentData)
+    {
+        npcCharacterInventory.AddEquipment(equipmentData);
+        _playerInventory.RemoveEquipment(equipmentData);
+        
+        RefreshShop(npcCharacterInventory);
     }
 }
