@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2494216877560671095}
   - component: {fileID: 4029859045433095300}
+  - component: {fileID: 4557014586063716353}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,11 +132,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEvents: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
   equipmentEvents: {fileID: 11400000, guid: 7960943042ab4c049a5f2aacdef6d116, type: 2}
+  playerData: {fileID: 11400000, guid: 09990d51d45de9c47b9b991af3fac057, type: 2}
   _baseSpriteSpriteRenderer: {fileID: 8098834647915906678}
   equippedBaseEquipmentDataSo: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
   _bodySpriteSpriteRenderer: {fileID: 4808142013192835571}
   _headSpriteSpriteRenderer: {fileID: 4447509924077313945}
   _hatSpriteSpriteRenderer: {fileID: 5994386759755450239}
+--- !u!114 &4557014586063716353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444889355173879670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a0bbe7cb3d8bf43b37bd42403d1d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tradingEvents: {fileID: 11400000, guid: 0db669e460a850e4d9ac56813516dc9f, type: 2}
+  equipmentEvents: {fileID: 11400000, guid: 7960943042ab4c049a5f2aacdef6d116, type: 2}
+  _playerData: {fileID: 11400000, guid: 09990d51d45de9c47b9b991af3fac057, type: 2}
 --- !u!1 &4001993715772643650
 GameObject:
   m_ObjectHideFlags: 0

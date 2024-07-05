@@ -6,24 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TradingEvents", menuName = "ScriptableObjects/Trading/TradingEvents")]
 public class STradingEvents : ScriptableObject
 {
-    
-    public event Action<SCharacterInventory> TradeStarted;
-    public event Action TradeEnded;
-    
     public event Action<SEquipmentData> SellEquipmentRequest;
     public event Action<SEquipmentData> EquipmentSold;
     public event Action<SEquipmentData> BuyEquipmentRequest;
     public event Action<SEquipmentData> EquipmentBought;
-
-    public void OnTradeStarted(SCharacterInventory npcInventory)
-    {
-        TradeStarted?.Invoke(npcInventory);
-    }
-
-    public void OnTradeEnded()
-    {
-        TradeEnded?.Invoke();
-    }
 
     public void OnSellEquipmentRequest(SEquipmentData equipmentData)
     {

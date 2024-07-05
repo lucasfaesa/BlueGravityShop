@@ -8,6 +8,7 @@ public class TradingWindowController : MonoBehaviour
     [Header("SOs")] 
     [SerializeField] private STradingEvents _tradingEventsSo;
     [SerializeField] private SCharacterInventory _playerInventory;
+    [SerializeField] private SUIEvents _uiEvents;
     
     [Header("Player")] 
     [SerializeField] private Transform _playerInventoryPanelContent;
@@ -25,16 +26,16 @@ public class TradingWindowController : MonoBehaviour
     
     private void OnEnable()
     {
-        _tradingEventsSo.TradeStarted += OpenShop;
-        _tradingEventsSo.TradeEnded += CloseShop;
+        _uiEvents.OpenTradingWindow += OpenShop;
+        _uiEvents.CloseTradingWindow += CloseShop;
         _tradingEventsSo.BuyEquipmentRequest += OnBuyEquipmentRequest;
         _tradingEventsSo.SellEquipmentRequest += OnSellEquipmentRequest;
     }
 
     private void OnDisable()
     {
-        _tradingEventsSo.TradeStarted -= OpenShop;
-        _tradingEventsSo.TradeEnded -= CloseShop;
+        _uiEvents.OpenTradingWindow -= OpenShop;
+        _uiEvents.CloseTradingWindow -= CloseShop;
         _tradingEventsSo.BuyEquipmentRequest -= OnBuyEquipmentRequest;
         _tradingEventsSo.SellEquipmentRequest -= OnSellEquipmentRequest;
     }

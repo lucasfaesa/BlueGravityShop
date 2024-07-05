@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7816452f34cc5ff4c9740c4b69277d7f, type: 3}
-  m_Name: Hat2SpritesData
+  m_Name: Hat2EquipmentData
   m_EditorClassIdentifier: 
   _equipmentType: 3
   equipmentThumbnail: {fileID: 21300000, guid: c0d3c99515dd6d64da4b93f3a13e78cd, type: 3}

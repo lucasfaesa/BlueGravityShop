@@ -23,7 +23,17 @@ public class PlayerEquippedItemsController : MonoBehaviour
         equipmentEvents.ItemEquipped -= OnItemEquipped;
         equipmentEvents.ItemUnequipped -= OnItemUnequipped;
     }
-    
+
+    private void Awake()
+    {
+        if(_playerData.GetHeadEquippedItem())
+            _playerData.GetHeadEquippedItem().SetCurrentlyEquipped(true);
+        if(_playerData.GetHatEquippedItem())
+            _playerData.GetHatEquippedItem().SetCurrentlyEquipped(true);
+        if(_playerData.GetBodyEquippedItem())
+            _playerData.GetBodyEquippedItem().SetCurrentlyEquipped(true);
+    }
+
     private void OnItemEquipped(SEquipmentData sEquipmentData)
     {
         _playerData.EquipItem(sEquipmentData);

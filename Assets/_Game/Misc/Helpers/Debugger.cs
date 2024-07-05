@@ -4,34 +4,25 @@ using UnityEngine;
 
 public class Debugger : MonoBehaviour
 {
-    [Header("Trading")]
+    [Header("UI Events")] 
+    [SerializeField] private SUIEvents uiEvents;
+    
+    [Header("Trading related")]
     [SerializeField] private STradingEvents tradingEventsSO;
     [SerializeField] private SCharacterInventory npcInventory;
-
-    [Header("Inventory")]
-    [SerializeField] private SInventoryEvents inventoryEventsSO;
     
-    private bool _isShopClosed;
+    private bool _isTradingWindowClosed;
     private bool _isInventoryClosed;
+    private bool _isCharacterWindowClosed;
     
     public void ToggleShop()
     {
-        _isShopClosed = !_isShopClosed;
+        _isTradingWindowClosed = !_isTradingWindowClosed;
         
-        if(_isShopClosed)
-            OpenShopWithNpc();
+        if(_isTradingWindowClosed)
+            uiEvents.OnOpenTradingWindow(npcInventory);
         else
-            CloseShopWithNpc();
-    }
-    
-    public void OpenShopWithNpc()
-    {
-        tradingEventsSO.OnTradeStarted(npcInventory);
-    }
-
-    public void CloseShopWithNpc()
-    {
-        tradingEventsSO.OnTradeEnded();
+            uiEvents.OnCloseTradingWindow();
     }
 
     public void ToggleInventory()
@@ -39,8 +30,18 @@ public class Debugger : MonoBehaviour
         _isInventoryClosed = !_isInventoryClosed;
         
         if(_isInventoryClosed)
-            inventoryEventsSO.OnInventoryOpen();
+            uiEvents.OnOpenInventoryWindow();
         else
-            inventoryEventsSO.OnInventoryClosed();
+            uiEvents.OnCloseInventoryWindow();
+    }
+
+    public void ToggleCharacterWindow()
+    {
+        _isCharacterWindowClosed = !_isCharacterWindowClosed;
+        
+        if(_isCharacterWindowClosed)
+            uiEvents.OnOpenCharacterWindow();
+        else
+            uiEvents.OnCloseCharacterWindow();
     }
 }

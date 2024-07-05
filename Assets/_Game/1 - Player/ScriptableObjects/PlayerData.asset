@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f8cad361d2ca647b30a1a859051ed6, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  headEquipment: {fileID: 0}
+  hatEquipment: {fileID: 0}
+  bodyEquipment: {fileID: 11400000, guid: 0c673313430dace498b9a9548a0322f4, type: 2}

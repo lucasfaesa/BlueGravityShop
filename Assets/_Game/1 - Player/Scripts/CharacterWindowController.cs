@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterWindowController : MonoBehaviour
 {
     [Header("SOs")] 
-    [SerializeField] private STradingEvents _tradingEvents;
+    [SerializeField] private SUIEvents _uiEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
     [SerializeField] private SPlayerData _playerData;
     
@@ -19,20 +19,35 @@ public class CharacterWindowController : MonoBehaviour
 
     private void OnEnable()
     {
+        _uiEvents.OpenCharacterWindow += OpenCharacterWindow;
+        _uiEvents.CloseCharacterWindow += CloseCharacterWindow;
         _equipmentEvents.ItemEquipped += OnItemEquipped;
         _equipmentEvents.ItemUnequipped += OnItemUnequipped;
     }
 
     private void OnDisable()
     {
+        _uiEvents.OpenCharacterWindow -= OpenCharacterWindow;
+        _uiEvents.CloseCharacterWindow -= CloseCharacterWindow;
         _equipmentEvents.ItemEquipped -= OnItemEquipped;
         _equipmentEvents.ItemUnequipped -= OnItemUnequipped;
     }
-
+    
     
     private void Start()
     {
         UpdateCharacterEquipments();
+    }
+
+    private void OpenCharacterWindow()
+    {
+        UpdateCharacterEquipments();
+        window.gameObject.SetActive(true);
+    }
+    
+    private void CloseCharacterWindow()
+    {
+        window.gameObject.SetActive(false);
     }
     
     private void UpdateCharacterEquipments()

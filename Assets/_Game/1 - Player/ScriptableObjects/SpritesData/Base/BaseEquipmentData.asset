@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7816452f34cc5ff4c9740c4b69277d7f, type: 3}
-  m_Name: BaseSpriteData
+  m_Name: BaseEquipmentData
   m_EditorClassIdentifier: 
   _equipmentType: 0
   equipmentThumbnail: {fileID: 0}

@@ -8,7 +8,7 @@ public class InventoryWindowController : MonoBehaviour
 
     [Header("SOs")] 
     [SerializeField] private STradingEvents _tradingEvents;
-    [SerializeField] private SInventoryEvents _inventoryEvents;
+    [SerializeField] private SUIEvents _uiEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
     [SerializeField] private SCharacterInventory _playerInventory;
     
@@ -27,8 +27,8 @@ public class InventoryWindowController : MonoBehaviour
         _equipmentEvents.ItemUnequipped += RefreshInventory;
         _tradingEvents.EquipmentBought += RefreshInventory;
         _tradingEvents.EquipmentSold += RefreshInventory;
-        _inventoryEvents.InventoryOpen += OpenInventory;
-        _inventoryEvents.InventoryClosed += CloseInventory;
+        _uiEvents.OpenInventoryWindow += OpenInventory;
+        _uiEvents.CloseInventoryWindow += CloseInventory;
     }
 
     private void OnDisable()
@@ -37,8 +37,8 @@ public class InventoryWindowController : MonoBehaviour
         _equipmentEvents.ItemUnequipped -= RefreshInventory;
         _tradingEvents.EquipmentBought -= RefreshInventory;
         _tradingEvents.EquipmentSold -= RefreshInventory;
-        _inventoryEvents.InventoryOpen -= OpenInventory;
-        _inventoryEvents.InventoryClosed -= CloseInventory;
+        _uiEvents.OpenInventoryWindow -= OpenInventory;
+        _uiEvents.CloseInventoryWindow -= CloseInventory;
     }
     
     private void OpenInventory()
