@@ -7,16 +7,16 @@ using UnityEngine;
 public class SEquipmentEvents : ScriptableObject
 {
     //TODO changes this name?
-    public event Action<SEquipmentData> CurrentEquipmentChanged;
-    public event Action<SEquipmentData> CurrentEquipmentRemoved;
+    public event Action<SEquipmentData> ItemEquipped;
+    public event Action<SEquipmentData> ItemUnequipped;
     
-    public void OnCurrentEquipmentChanged(SEquipmentData equipmentData)
+    public void OnItemEquipped(SEquipmentData equipmentData)
     {
-        CurrentEquipmentChanged?.Invoke(equipmentData);
+        ItemEquipped?.Invoke(equipmentData);
     }
 
-    public void OnEquipmentRemove(SEquipmentData equipmentData)
+    public void OnItemUnequipped(SEquipmentData equipmentData)
     {
-        CurrentEquipmentRemoved?.Invoke(equipmentData);
+        ItemUnequipped?.Invoke(equipmentData);
     }
 }

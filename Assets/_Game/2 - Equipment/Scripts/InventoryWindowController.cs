@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryWindowController : MonoBehaviour
@@ -22,6 +23,8 @@ public class InventoryWindowController : MonoBehaviour
 
     private void OnEnable()
     {
+        _equipmentEvents.ItemEquipped += RefreshInventory;
+        _equipmentEvents.ItemUnequipped += RefreshInventory;
         _tradingEvents.EquipmentBought += RefreshInventory;
         _tradingEvents.EquipmentSold += RefreshInventory;
         _inventoryEvents.InventoryOpen += OpenInventory;
@@ -30,6 +33,8 @@ public class InventoryWindowController : MonoBehaviour
 
     private void OnDisable()
     {
+        _equipmentEvents.ItemEquipped -= RefreshInventory;
+        _equipmentEvents.ItemUnequipped -= RefreshInventory;
         _tradingEvents.EquipmentBought -= RefreshInventory;
         _tradingEvents.EquipmentSold -= RefreshInventory;
         _inventoryEvents.InventoryOpen -= OpenInventory;
@@ -45,7 +50,7 @@ public class InventoryWindowController : MonoBehaviour
 
     private void SetDisplayData(SCharacterInventory characterInventorySO, List<InventoryItemDisplay> displayPool)
     {
-        var equipmentsList = characterInventorySO.GetEquipmentsList();
+        var equipmentsList = characterInventorySO.GetEquipmentsList().Where(x=>!x.GetCurrentlyEquipped()).ToList();
         
         //instantiating pool
         if (characterInventorySO.GetEquipmentsList().Count > displayPool.Count)
@@ -84,7 +89,6 @@ public class InventoryWindowController : MonoBehaviour
 
     private void InstantiateEquipmentItemDisplays(int qty)
     {
-        
         for (int i = 0; i < qty; i++)
         {
             var instantiatedPrefab = Instantiate(_inventoryItemDisplayPrefab, _inventoryPanelContent);

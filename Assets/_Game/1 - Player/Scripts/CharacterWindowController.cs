@@ -19,14 +19,14 @@ public class CharacterWindowController : MonoBehaviour
 
     private void OnEnable()
     {
-        _equipmentEvents.CurrentEquipmentChanged += OnEquipmentChanged;
-        _equipmentEvents.CurrentEquipmentRemoved += OnEquipmentRemoved;
+        _equipmentEvents.ItemEquipped += OnItemEquipped;
+        _equipmentEvents.ItemUnequipped += OnItemUnequipped;
     }
 
     private void OnDisable()
     {
-        _equipmentEvents.CurrentEquipmentChanged -= OnEquipmentChanged;
-        _equipmentEvents.CurrentEquipmentRemoved -= OnEquipmentRemoved;
+        _equipmentEvents.ItemEquipped -= OnItemEquipped;
+        _equipmentEvents.ItemUnequipped -= OnItemUnequipped;
     }
 
     
@@ -42,7 +42,7 @@ public class CharacterWindowController : MonoBehaviour
         UpdateItemDisplay(bodyItemDisplay, _playerData.GetBodyEquippedItem());
     }
     
-    private void OnEquipmentChanged(SEquipmentData sEquipmentData)
+    private void OnItemEquipped(SEquipmentData sEquipmentData)
     {
         switch (sEquipmentData.GetEquipmentType())
         {
@@ -58,7 +58,7 @@ public class CharacterWindowController : MonoBehaviour
         }
     }
     
-    private void OnEquipmentRemoved(SEquipmentData sEquipmentData)
+    private void OnItemUnequipped(SEquipmentData sEquipmentData)
     {
         switch (sEquipmentData.GetEquipmentType())
         {

@@ -24,8 +24,8 @@ public class InventoryItemDisplay : MonoBehaviour
     public void ToggleEquipmentStatus()
     {
         if(_equipment.GetCurrentlyEquipped())
-            _equipmentEvents.OnEquipmentRemove(_equipment);
+            _equipmentEvents.OnItemUnequipped(_equipment);
         else
-            _equipmentEvents.OnCurrentEquipmentChanged(_equipment);
+            _equipmentEvents.OnItemEquipped(_equipment);
     }
 }

@@ -28,12 +28,21 @@ public class SPlayerData : ScriptableObject
         switch (data.GetEquipmentType())
         {
             case Helpers.EquipmentType.HEAD:
+                if(headEquipment)
+                    headEquipment.SetCurrentlyEquipped(false);
+                
                 headEquipment = data;
                 break;
             case Helpers.EquipmentType.HAT:
+                if(hatEquipment)
+                    hatEquipment.SetCurrentlyEquipped(false);
+                
                 hatEquipment = data;
                 break;
             case Helpers.EquipmentType.BODY:
+                if(bodyEquipment)
+                    bodyEquipment.SetCurrentlyEquipped(false);
+                
                 bodyEquipment = data;
                 break;
         }

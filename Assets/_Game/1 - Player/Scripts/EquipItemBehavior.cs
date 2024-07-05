@@ -15,11 +15,11 @@ public class EquipItemBehavior : MonoBehaviour
     //TODO change this name
     public void EquipItem()
     {
-        _equipmentEvents.OnCurrentEquipmentChanged(equipmentDataSo);
+        _equipmentEvents.OnItemEquipped(equipmentDataSo);
     }
 
     public void UnequipItem()
     {
-        _equipmentEvents.OnEquipmentRemove(equipmentDataSo);
+        _equipmentEvents.OnItemUnequipped(equipmentDataSo);
     }
 }

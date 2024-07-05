@@ -13,23 +13,23 @@ public class PlayerEquippedItemsController : MonoBehaviour
     private void OnEnable()
     {
         tradingEvents.EquipmentSold += OnEquipmentSold;
-        equipmentEvents.CurrentEquipmentChanged += OnEquipmentChanged;
-        equipmentEvents.CurrentEquipmentRemoved += OnEquipmentRemoved;
+        equipmentEvents.ItemEquipped += OnItemEquipped;
+        equipmentEvents.ItemUnequipped += OnItemUnequipped;
     }
 
     private void OnDisable()
     {
         tradingEvents.EquipmentSold -= OnEquipmentSold;
-        equipmentEvents.CurrentEquipmentChanged -= OnEquipmentChanged;
-        equipmentEvents.CurrentEquipmentRemoved -= OnEquipmentRemoved;
+        equipmentEvents.ItemEquipped -= OnItemEquipped;
+        equipmentEvents.ItemUnequipped -= OnItemUnequipped;
     }
     
-    private void OnEquipmentChanged(SEquipmentData sEquipmentData)
+    private void OnItemEquipped(SEquipmentData sEquipmentData)
     {
         _playerData.EquipItem(sEquipmentData);
     }
     
-    private void OnEquipmentRemoved(SEquipmentData sEquipmentData)
+    private void OnItemUnequipped(SEquipmentData sEquipmentData)
     {
         _playerData.UnequipItem(sEquipmentData);
     }
@@ -37,6 +37,6 @@ public class PlayerEquippedItemsController : MonoBehaviour
     private void OnEquipmentSold(SEquipmentData sEquipmentData)
     {
         if (sEquipmentData.GetCurrentlyEquipped())
-            equipmentEvents.OnEquipmentRemove(sEquipmentData);
+            equipmentEvents.OnItemUnequipped(sEquipmentData);
     }
 }
