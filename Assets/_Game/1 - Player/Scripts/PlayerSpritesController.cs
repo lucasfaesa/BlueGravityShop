@@ -7,6 +7,7 @@ public class PlayerSpritesController : MonoBehaviour
 {
     [Header("SO's")] 
     [SerializeField] private SPlayerEvents playerEvents;
+    [SerializeField] private SEquipmentEvents equipmentEvents;
     
     [Header("Base Related")] 
     [SerializeField] private SpriteRenderer _baseSpriteSpriteRenderer;
@@ -39,16 +40,16 @@ public class PlayerSpritesController : MonoBehaviour
     {
         playerEvents.FacingDirectionChanged += OnPlayerDirectionChanged;
         playerEvents.PlayerCurrentStateChanged += OnPlayerCurrentStateChanged;
-        playerEvents.CurrentEquipmentChanged += OnEquipmentChanged;
-        playerEvents.CurrentEquipmentRemoved += OnEquipmentRemoved;
+        equipmentEvents.CurrentEquipmentChanged += OnEquipmentChanged;
+        equipmentEvents.CurrentEquipmentRemoved += OnEquipmentRemoved;
     }
 
     private void OnDisable()
     {
         playerEvents.FacingDirectionChanged -= OnPlayerDirectionChanged;
         playerEvents.PlayerCurrentStateChanged -= OnPlayerCurrentStateChanged;
-        playerEvents.CurrentEquipmentChanged -= OnEquipmentChanged;
-        playerEvents.CurrentEquipmentRemoved -= OnEquipmentRemoved;
+        equipmentEvents.CurrentEquipmentChanged -= OnEquipmentChanged;
+        equipmentEvents.CurrentEquipmentRemoved -= OnEquipmentRemoved;
     }
 
     void Start()
@@ -123,7 +124,6 @@ public class PlayerSpritesController : MonoBehaviour
 
     private void OnEquipmentChanged(SEquipmentData equipmentData)
     {
-        
         switch (equipmentData.GetEquipmentType())
         {
             case Helpers.EquipmentType.BASE:

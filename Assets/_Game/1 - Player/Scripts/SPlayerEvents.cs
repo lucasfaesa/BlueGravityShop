@@ -8,10 +8,6 @@ public class SPlayerEvents : ScriptableObject
 {
     public event Action<Helpers.FacingDirection> FacingDirectionChanged;
     public event Action<Helpers.PlayerCurrentState> PlayerCurrentStateChanged;
-    
-    //TODO separate player events from equipment events
-    public event Action<SEquipmentData> CurrentEquipmentChanged;
-    public event Action<Helpers.EquipmentType> CurrentEquipmentRemoved;
 
     public void OnFacingDirectionChanged(Helpers.FacingDirection direction)
     {
@@ -22,17 +18,6 @@ public class SPlayerEvents : ScriptableObject
     {
         PlayerCurrentStateChanged?.Invoke(state);
     }
-
-    public void OnCurrentEquipmentChanged(SEquipmentData equipmentData)
-    {
-        CurrentEquipmentChanged?.Invoke(equipmentData);
-    }
-
-    public void OnEquipmentRemove(Helpers.EquipmentType type)
-    {
-        CurrentEquipmentRemoved?.Invoke(type);
-    }
-    
     
     
     #region Debug Methods

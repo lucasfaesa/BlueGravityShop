@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEvents: {fileID: 11400000, guid: 8386351a57fda764fbda69e75483ed5d, type: 2}
+  equipmentEvents: {fileID: 11400000, guid: 7960943042ab4c049a5f2aacdef6d116, type: 2}
   _baseSpriteSpriteRenderer: {fileID: 8098834647915906678}
   equippedBaseEquipmentDataSo: {fileID: 11400000, guid: 646b687ee837f564989fab4ad28d2947, type: 2}
   _bodySpriteSpriteRenderer: {fileID: 4808142013192835571}
