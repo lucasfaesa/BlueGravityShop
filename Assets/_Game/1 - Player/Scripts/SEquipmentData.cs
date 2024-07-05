@@ -6,10 +6,17 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "SpriteData", menuName = "ScriptableObjects/Sprite/SpriteData")]
-public class SSpriteData : ScriptableObject
+public class SEquipmentData : ScriptableObject
 {
+    [Header("Item Settings")]
     [SerializeField] private Helpers.EquipmentType _equipmentType = Helpers.EquipmentType.BASE;
-    [Space]
+    [SerializeField] private Sprite equipmentThumbnail;
+    [SerializeField] private string equipmentName;
+    [SerializeField] private int equipmentBuyValue;
+    [Range(10, 100)]
+    [SerializeField] private int valueDepreciationPercent;
+    
+    [Header("Animation Settings")]
     [SerializeField] private float _idleUpdateRate = 1f;
     [SerializeField] private float _walkUpdateRate = 0.15f;
     [SerializeField] private float _runUpdateRate = 0.2f;
@@ -19,6 +26,28 @@ public class SSpriteData : ScriptableObject
     public Helpers.EquipmentType GetEquipmentType()
     {
         return _equipmentType;
+    }
+
+    public Sprite GetEquipmentThumbnail()
+    {
+        return equipmentThumbnail;
+    }
+    public string GetEquipmentName()
+    {
+        return equipmentName;
+    }
+    
+    public int GetEquipmentBuyValue()
+    {
+        return equipmentBuyValue;
+    }
+    
+    public int GetEquipmentDepreciatedValue()
+    {
+        float depreciationRateDecimal = valueDepreciationPercent / 100.0f;
+        int finalValue = (int)(equipmentBuyValue * (1 - depreciationRateDecimal));
+        
+        return finalValue;
     }
 
     public List<SpritesBlock> GetSpritesBlockList()

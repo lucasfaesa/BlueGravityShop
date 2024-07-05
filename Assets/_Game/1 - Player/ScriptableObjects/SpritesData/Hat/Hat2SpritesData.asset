@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Hat2SpritesData
   m_EditorClassIdentifier: 
   _equipmentType: 3
+  equipmentThumbnail: {fileID: 21300000, guid: b5461a367b1b63843a1455cb4238bc4d, type: 3}
+  equipmentName: Hat 2
+  equipmentBuyValue: 201
+  valueDepreciationPercent: 80
   _idleUpdateRate: 1
   _walkUpdateRate: 0.15
   _runUpdateRate: 0.2

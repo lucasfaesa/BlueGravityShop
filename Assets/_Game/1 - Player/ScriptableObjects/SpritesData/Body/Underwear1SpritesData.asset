@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Underwear1SpritesData
   m_EditorClassIdentifier: 
   _equipmentType: 2
+  equipmentThumbnail: {fileID: 21300000, guid: 34a7a2d83cbf1ee42875b0798b874921, type: 3}
+  equipmentName: Underwear 1
+  equipmentBuyValue: 50
+  valueDepreciationPercent: 20
   _idleUpdateRate: 1
   _walkUpdateRate: 0.15
   _runUpdateRate: 0.2

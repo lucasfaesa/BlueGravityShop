@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: BaseSpriteData
   m_EditorClassIdentifier: 
   _equipmentType: 0
+  equipmentThumbnail: {fileID: 0}
+  equipmentName: BASE
+  equipmentBuyValue: 0
+  valueDepreciationPercent: 10
   _idleUpdateRate: 1
   _walkUpdateRate: 0.15
   _runUpdateRate: 0.2

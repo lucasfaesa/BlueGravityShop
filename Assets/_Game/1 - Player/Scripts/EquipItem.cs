@@ -7,16 +7,16 @@ public class EquipItem : MonoBehaviour
     [Header("SOs")]
     [SerializeField] private SPlayerEvents _playerEvents;
     [Space] 
-    [SerializeField] private SSpriteData _spriteDataSO;
+    [SerializeField] private SEquipmentData equipmentDataSo;
 
     //TODO change this name
     public void EquipItemMethod()
     {
-        _playerEvents.OnCurrentEquipmentChanged(_spriteDataSO);
+        _playerEvents.OnCurrentEquipmentChanged(equipmentDataSo);
     }
 
     public void UnequipItem()
     {
-        _playerEvents.OnEquipmentRemove(_spriteDataSO.GetEquipmentType());
+        _playerEvents.OnEquipmentRemove(equipmentDataSo.GetEquipmentType());
     }
 }

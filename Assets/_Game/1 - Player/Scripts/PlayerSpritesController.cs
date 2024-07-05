@@ -10,7 +10,7 @@ public class PlayerSpritesController : MonoBehaviour
     
     [Header("Base Related")] 
     [SerializeField] private SpriteRenderer _baseSpriteSpriteRenderer;
-    [SerializeField] private SSpriteData _equippedBaseSpriteDataSO;
+    [SerializeField] private SEquipmentData equippedBaseEquipmentDataSo;
     
     [Header("Body Related")] 
     [SerializeField] private SpriteRenderer _bodySpriteSpriteRenderer;
@@ -25,9 +25,9 @@ public class PlayerSpritesController : MonoBehaviour
     
     private bool _canAnimate = true;
 
-    private SSpriteData _equippedBodySpriteDataSO;
-    private SSpriteData _equippedHeadSpriteDataSO;
-    private SSpriteData _equippedHatSpriteDataSO;
+    private SEquipmentData _equippedBodyEquipmentDataSo;
+    private SEquipmentData _equippedHeadEquipmentDataSo;
+    private SEquipmentData _equippedHatEquipmentDataSo;
     
     private SpriteAnimation _baseSpriteAnimation = new SpriteAnimation();
     private SpriteAnimation _bodySpriteAnimation = new SpriteAnimation();
@@ -54,7 +54,7 @@ public class PlayerSpritesController : MonoBehaviour
     void Start()
     {
         //base starts equipped
-        _baseSpriteAnimation = new SpriteAnimation(_equippedBaseSpriteDataSO, _facingDirection, _playerCurrentState);
+        _baseSpriteAnimation = new SpriteAnimation(equippedBaseEquipmentDataSo, _facingDirection, _playerCurrentState);
     }
     
     void Update()
@@ -109,45 +109,45 @@ public class PlayerSpritesController : MonoBehaviour
     private void ChangeSpritesList(Helpers.FacingDirection facingDirection, Helpers.PlayerCurrentState state)
     {
         if(_baseSpriteAnimation.IsActive)
-            _baseSpriteAnimation.SetData(_baseSpriteSpriteRenderer, _equippedBaseSpriteDataSO, facingDirection, state);
+            _baseSpriteAnimation.SetData(_baseSpriteSpriteRenderer, equippedBaseEquipmentDataSo, facingDirection, state);
         
         if(_bodySpriteAnimation.IsActive)
-            _bodySpriteAnimation.SetData(_bodySpriteSpriteRenderer, _equippedBodySpriteDataSO, facingDirection, state);
+            _bodySpriteAnimation.SetData(_bodySpriteSpriteRenderer, _equippedBodyEquipmentDataSo, facingDirection, state);
         
         if(_headSpriteAnimation.IsActive)
-            _headSpriteAnimation.SetData(_headSpriteSpriteRenderer, _equippedHeadSpriteDataSO, facingDirection, state);
+            _headSpriteAnimation.SetData(_headSpriteSpriteRenderer, _equippedHeadEquipmentDataSo, facingDirection, state);
         
         if(_hatSpriteAnimation.IsActive)
-            _hatSpriteAnimation.SetData(_hatSpriteSpriteRenderer, _equippedHatSpriteDataSO, facingDirection, state);
+            _hatSpriteAnimation.SetData(_hatSpriteSpriteRenderer, _equippedHatEquipmentDataSo, facingDirection, state);
     }
 
-    private void OnEquipmentChanged(SSpriteData spriteData)
+    private void OnEquipmentChanged(SEquipmentData equipmentData)
     {
         
-        switch (spriteData.GetEquipmentType())
+        switch (equipmentData.GetEquipmentType())
         {
             case Helpers.EquipmentType.BASE:
-                _equippedBaseSpriteDataSO = spriteData;
-                UpdateSprites(_baseSpriteSpriteRenderer, spriteData, _baseSpriteAnimation);
+                equippedBaseEquipmentDataSo = equipmentData;
+                UpdateSprites(_baseSpriteSpriteRenderer, equipmentData, _baseSpriteAnimation);
                 break;
             case Helpers.EquipmentType.BODY:
-                _equippedBodySpriteDataSO = spriteData;
-                UpdateSprites(_bodySpriteSpriteRenderer, spriteData, _bodySpriteAnimation);
+                _equippedBodyEquipmentDataSo = equipmentData;
+                UpdateSprites(_bodySpriteSpriteRenderer, equipmentData, _bodySpriteAnimation);
                 break;
             case Helpers.EquipmentType.HEAD:
-                _equippedHeadSpriteDataSO = spriteData;
-                UpdateSprites(_headSpriteSpriteRenderer, spriteData, _headSpriteAnimation);
+                _equippedHeadEquipmentDataSo = equipmentData;
+                UpdateSprites(_headSpriteSpriteRenderer, equipmentData, _headSpriteAnimation);
                 break;
             case Helpers.EquipmentType.HAT:
-                _equippedHatSpriteDataSO = spriteData;
-                UpdateSprites(_hatSpriteSpriteRenderer, spriteData, _hatSpriteAnimation);
+                _equippedHatEquipmentDataSo = equipmentData;
+                UpdateSprites(_hatSpriteSpriteRenderer, equipmentData, _hatSpriteAnimation);
                 break;
         }
         
         ResetAllSpritesToBeginning();
     }
 
-    private void UpdateSprites(SpriteRenderer rend, SSpriteData data, SpriteAnimation spriteAnimation)
+    private void UpdateSprites(SpriteRenderer rend, SEquipmentData data, SpriteAnimation spriteAnimation)
     {
         if (!_baseSpriteAnimation.IsInitialized)
             spriteAnimation = new SpriteAnimation(data, _facingDirection, _playerCurrentState);
@@ -201,7 +201,7 @@ public class PlayerSpritesController : MonoBehaviour
         public int CurrentSpriteIndex { get; set; }
         public float Time { get; set; }
 
-        public SpriteAnimation(SSpriteData data, Helpers.FacingDirection dir, Helpers.PlayerCurrentState state, 
+        public SpriteAnimation(SEquipmentData data, Helpers.FacingDirection dir, Helpers.PlayerCurrentState state, 
                                     bool isActive = true, int index = 0, float time = 0)
         {
             this.Sprites = data.GetCurrentStateSprites(dir, state);
@@ -214,11 +214,11 @@ public class PlayerSpritesController : MonoBehaviour
 
         public SpriteAnimation() { }
 
-        public void SetData(SpriteRenderer spriteRenderer, SSpriteData spriteDataSO, Helpers.FacingDirection facingDirection,
+        public void SetData(SpriteRenderer spriteRenderer, SEquipmentData equipmentDataSo, Helpers.FacingDirection facingDirection,
                                 Helpers.PlayerCurrentState playerState)
         {
-            Sprites = spriteDataSO.GetCurrentStateSprites(facingDirection, playerState);
-            UpdateRate = spriteDataSO.GetSpriteUpdateRate(playerState);
+            Sprites = equipmentDataSo.GetCurrentStateSprites(facingDirection, playerState);
+            UpdateRate = equipmentDataSo.GetSpriteUpdateRate(playerState);
             Reset(spriteRenderer);
             this.IsActive = true;
         }
