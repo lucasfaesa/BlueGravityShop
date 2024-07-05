@@ -9,6 +9,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private SPlayerEvents _playerEvents;
     [SerializeField] private SInputReader _inputReader;
     [SerializeField] private SPlayerData _playerData;
+    [SerializeField] private SUIEvents _uiEvents;
     
     [Header("Components")]
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -23,17 +24,23 @@ public class PlayerMovementController : MonoBehaviour
     private Helpers.FacingDirection _newDir;
     private Helpers.PlayerCurrentState _newState;
     private bool _isSprinting;
+
+    private bool _canMove = true;
     
     private void OnEnable()
     {
         _inputReader.EnableInputActions();
         _inputReader.Sprint += OnSprint;
+        _uiEvents.OpenTradingWindow += InTrade;
+        _uiEvents.CloseTradingWindow += LeftTrade;
     }
 
     private void OnDisable()
     {
         _inputReader.DisableInputActions();
         _inputReader.Sprint -= OnSprint;
+        _uiEvents.OpenTradingWindow -= InTrade;
+        _uiEvents.CloseTradingWindow -= LeftTrade;
     }
 
     private void Start()
@@ -48,6 +55,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
+        if (!_canMove) return;
+        
         movementDirectionInput = _inputReader.GetInputDirection().normalized;
         
         UpdateFacingDirection();
@@ -108,5 +117,15 @@ public class PlayerMovementController : MonoBehaviour
     {
         _isSprinting = pressed;
         playerSpeed = _playerData.GetSpeed(pressed);
+    }
+
+    private void InTrade(SCharacterInventory _)
+    {
+        _canMove = false;
+    }
+
+    private void LeftTrade()
+    {
+        _canMove = true;
     }
 }

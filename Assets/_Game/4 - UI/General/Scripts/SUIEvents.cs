@@ -14,6 +14,9 @@ public class SUIEvents : ScriptableObject
 
     public event Action OpenCharacterWindow;
     public event Action CloseCharacterWindow;
+
+    public event Action ShowInteractionBanner;
+    public event Action HideInteractionBanner;
     
     public void OnOpenInventoryWindow()
     {
@@ -43,5 +46,15 @@ public class SUIEvents : ScriptableObject
     public void OnCloseCharacterWindow()
     {
         CloseCharacterWindow?.Invoke();
+    }
+
+    public void OnShowInteractionBanner()
+    {
+        ShowInteractionBanner?.Invoke();
+    }
+
+    public void OnHideInteractionBanner()
+    {
+        HideInteractionBanner?.Invoke();
     }
 }
