@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//TODO Change to equippableItemDisplay?
 public class InventoryItemDisplay : MonoBehaviour
 {
     [SerializeField] private SEquipmentEvents _equipmentEvents;
