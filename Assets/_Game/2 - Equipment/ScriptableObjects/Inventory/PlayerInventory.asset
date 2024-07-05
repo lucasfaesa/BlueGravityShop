@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784bf7e484b13e3409b18f47f249109f, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  gold: 100
+  gold: 1000
   equipmentsList:
   - {fileID: 11400000, guid: 449021683aab51342a6bc8b91802b557, type: 2}
-  - {fileID: 11400000, guid: 403bf2562809c2a46a3bfccf5afb1263, type: 2}

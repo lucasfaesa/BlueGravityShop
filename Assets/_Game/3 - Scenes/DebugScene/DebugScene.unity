@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c80d377c06da92489f1ea3a5c1e572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tradingEvents: {fileID: 11400000, guid: 0db669e460a850e4d9ac56813516dc9f, type: 2}
   _inventoryEvents: {fileID: 11400000, guid: 26badbe66bd5cf64fa2f2f44594c4143, type: 2}
   _equipmentEvents: {fileID: 11400000, guid: 7960943042ab4c049a5f2aacdef6d116, type: 2}
   _playerInventory: {fileID: 11400000, guid: a2b34c2f47f13294ab9e89275d7d1bc0, type: 2}

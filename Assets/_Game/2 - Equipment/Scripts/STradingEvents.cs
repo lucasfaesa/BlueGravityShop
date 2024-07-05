@@ -9,8 +9,10 @@ public class STradingEvents : ScriptableObject
     
     public event Action<SCharacterInventory> TradeStarted;
     public event Action TradeEnded;
+    
+    public event Action<SEquipmentData> SellEquipmentRequest;
     public event Action<SEquipmentData> EquipmentSold;
-    public event Action<SEquipmentData> TryingToBuyEquipment;
+    public event Action<SEquipmentData> BuyEquipmentRequest;
     public event Action<SEquipmentData> EquipmentBought;
 
     public void OnTradeStarted(SCharacterInventory npcInventory)
@@ -23,14 +25,19 @@ public class STradingEvents : ScriptableObject
         TradeEnded?.Invoke();
     }
 
+    public void OnSellEquipmentRequest(SEquipmentData equipmentData)
+    {
+        SellEquipmentRequest?.Invoke(equipmentData);
+    }
+
     public void OnEquipmentSold(SEquipmentData equipmentData)
     {
         EquipmentSold?.Invoke(equipmentData);
     }
 
-    public void OnTryingToBuyEquipment(SEquipmentData equipmentData)
+    public void OnBuyEquipmentRequest(SEquipmentData equipmentData)
     {
-        TryingToBuyEquipment?.Invoke(equipmentData);
+        BuyEquipmentRequest?.Invoke(equipmentData);
     }
     
     public void OnEquipmentBought(SEquipmentData equipmentData)

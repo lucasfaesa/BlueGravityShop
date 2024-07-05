@@ -35,8 +35,8 @@ public class TradingItemDisplay : MonoBehaviour
     public void FinishTransaction()
     {
         if(_isPlayerWindow)
-            _tradingEventsSo.OnEquipmentSold(_equipment);
+            _tradingEventsSo.OnSellEquipmentRequest(_equipment);
         else
-            _tradingEventsSo.OnTryingToBuyEquipment(_equipment);
+            _tradingEventsSo.OnBuyEquipmentRequest(_equipment);
     }
 }

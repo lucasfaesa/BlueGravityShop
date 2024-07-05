@@ -27,16 +27,16 @@ public class TradingWindowController : MonoBehaviour
     {
         _tradingEventsSo.TradeStarted += OpenShop;
         _tradingEventsSo.TradeEnded += CloseShop;
-        _tradingEventsSo.TryingToBuyEquipment += OnTryToBuyEquipment;
-        _tradingEventsSo.EquipmentSold += OnEquipmentSold;
+        _tradingEventsSo.BuyEquipmentRequest += OnBuyEquipmentRequest;
+        _tradingEventsSo.SellEquipmentRequest += OnSellEquipmentRequest;
     }
 
     private void OnDisable()
     {
         _tradingEventsSo.TradeStarted -= OpenShop;
         _tradingEventsSo.TradeEnded -= CloseShop;
-        _tradingEventsSo.TryingToBuyEquipment -= OnTryToBuyEquipment;
-        _tradingEventsSo.EquipmentSold -= OnEquipmentSold;
+        _tradingEventsSo.BuyEquipmentRequest -= OnBuyEquipmentRequest;
+        _tradingEventsSo.SellEquipmentRequest -= OnSellEquipmentRequest;
     }
     
     private void OpenShop(SCharacterInventory npcInventory)
@@ -111,25 +111,28 @@ public class TradingWindowController : MonoBehaviour
         }
     }
 
-    private void OnTryToBuyEquipment(SEquipmentData equipmentData)
+    private void OnBuyEquipmentRequest(SEquipmentData equipmentData)
     {
         if (!_playerInventory.HasGold(equipmentData.GetEquipmentBuyValue()))
             return;
         
         npcCharacterInventory.RemoveEquipment(equipmentData);
         _playerInventory.AddEquipment(equipmentData);
-
+        
         _playerInventory.SpendGold(equipmentData.GetEquipmentBuyValue());
+        _tradingEventsSo.OnEquipmentBought(equipmentData);
+        
         
         RefreshShop(npcCharacterInventory);
     }
     
-    private void OnEquipmentSold(SEquipmentData equipmentData)
+    private void OnSellEquipmentRequest(SEquipmentData equipmentData)
     {
         npcCharacterInventory.AddEquipment(equipmentData);
         _playerInventory.RemoveEquipment(equipmentData);
-
+        
         _playerInventory.AddGold(equipmentData.GetEquipmentDepreciatedValue());
+        _tradingEventsSo.OnEquipmentSold(equipmentData);
         
         RefreshShop(npcCharacterInventory);
     }

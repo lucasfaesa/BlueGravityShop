@@ -6,6 +6,7 @@ public class InventoryWindowController : MonoBehaviour
 {
 
     [Header("SOs")] 
+    [SerializeField] private STradingEvents _tradingEvents;
     [SerializeField] private SInventoryEvents _inventoryEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
     [SerializeField] private SCharacterInventory _playerInventory;
@@ -21,12 +22,16 @@ public class InventoryWindowController : MonoBehaviour
 
     private void OnEnable()
     {
+        _tradingEvents.EquipmentBought += RefreshInventory;
+        _tradingEvents.EquipmentSold += RefreshInventory;
         _inventoryEvents.InventoryOpen += OpenInventory;
         _inventoryEvents.InventoryClosed += CloseInventory;
     }
 
     private void OnDisable()
     {
+        _tradingEvents.EquipmentBought -= RefreshInventory;
+        _tradingEvents.EquipmentSold -= RefreshInventory;
         _inventoryEvents.InventoryOpen -= OpenInventory;
         _inventoryEvents.InventoryClosed -= CloseInventory;
     }
@@ -45,7 +50,7 @@ public class InventoryWindowController : MonoBehaviour
         //instantiating pool
         if (characterInventorySO.GetEquipmentsList().Count > displayPool.Count)
         {
-            InstantiateEquipmentItemDisplays(equipmentsList.Count - displayPool.Count, _inventoryWindow);
+            InstantiateEquipmentItemDisplays(equipmentsList.Count - displayPool.Count);
         }
         
         for (int i = 0; i < equipmentsList.Count; i++)
@@ -58,7 +63,7 @@ public class InventoryWindowController : MonoBehaviour
         }
     }
 
-    private void RefreshInventory(SCharacterInventory playerInventory)
+    private void RefreshInventory(SEquipmentData _)
     {
         HideAllEquipmentsDisplay();
         
@@ -77,7 +82,7 @@ public class InventoryWindowController : MonoBehaviour
         _instantiatedPlayerInventoryItemDisplays.ForEach(x=>x.gameObject.SetActive(false));
     }
 
-    private void InstantiateEquipmentItemDisplays(int qty, Transform window)
+    private void InstantiateEquipmentItemDisplays(int qty)
     {
         
         for (int i = 0; i < qty; i++)
@@ -88,28 +93,4 @@ public class InventoryWindowController : MonoBehaviour
             _instantiatedPlayerInventoryItemDisplays.Add(instantiatedPrefab);    
         }
     }
-
-    //TODO Implement later
-    /*private void OnTryToBuyEquipment(SEquipmentData equipmentData)
-    {
-        if (!_playerInventory.HasGold(equipmentData.GetEquipmentBuyValue()))
-            return;
-        
-        npcCharacterInventory.RemoveEquipment(equipmentData);
-        _playerInventory.AddEquipment(equipmentData);
-
-        _playerInventory.SpendGold(equipmentData.GetEquipmentBuyValue());
-        
-        RefreshShop(npcCharacterInventory);
-    }
-    
-    private void OnEquipmentSold(SEquipmentData equipmentData)
-    {
-        npcCharacterInventory.AddEquipment(equipmentData);
-        _playerInventory.RemoveEquipment(equipmentData);
-
-        _playerInventory.AddGold(equipmentData.GetEquipmentDepreciatedValue());
-        
-        RefreshShop(npcCharacterInventory);
-    }*/
 }
