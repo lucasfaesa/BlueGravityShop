@@ -21,12 +21,12 @@ MonoBehaviour:
     idleSprites:
     - {fileID: -943013660, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
     walkingSprites:
-    - {fileID: -861351904, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: -792042623, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: -1272786223, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: 478922976, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: -2021968391, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: 2007441806, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -931106723, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -2064675494, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1429326646, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -161063142, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1487095195, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 1612356534, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
     runningSprites:
     - {fileID: 243303547, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
     - {fileID: 1645915136, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
@@ -34,12 +34,12 @@ MonoBehaviour:
     idleSprites:
     - {fileID: -1746514849, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
     walkingSprites:
-    - {fileID: -931106723, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: -2064675494, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: 1429326646, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: -161063142, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: 1487095195, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
-    - {fileID: 1612356534, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -861351904, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -792042623, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -1272786223, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 478922976, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: -2021968391, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
+    - {fileID: 2007441806, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
     runningSprites:
     - {fileID: 318763530, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}
     - {fileID: -1336758542, guid: bfe4dc94589c2c44882c67769269d97b, type: 3}

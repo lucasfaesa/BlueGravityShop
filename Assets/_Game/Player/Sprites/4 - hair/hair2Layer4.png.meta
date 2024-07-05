@@ -795,7 +795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkNorth0
+      name: walkSouth0
       rect:
         serializedVersion: 2
         x: 0
@@ -816,11 +816,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkNorth1
+      name: walkSouth1
       rect:
         serializedVersion: 2
         x: 64
-        y: 193
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -837,7 +837,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkNorth2
+      name: walkSouth2
       rect:
         serializedVersion: 2
         x: 128
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkNorth3
+      name: walkSouth3
       rect:
         serializedVersion: 2
         x: 192
@@ -879,7 +879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkNorth4
+      name: walkSouth4
       rect:
         serializedVersion: 2
         x: 256
@@ -900,7 +900,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkNorth5
+      name: walkSouth5
       rect:
         serializedVersion: 2
         x: 320
@@ -946,7 +946,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 193
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -963,7 +963,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkSouth0
+      name: walkNorth0
       rect:
         serializedVersion: 2
         x: 0
@@ -984,7 +984,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkSouth1
+      name: walkNorth1
       rect:
         serializedVersion: 2
         x: 64
@@ -1005,11 +1005,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkSouth2
+      name: walkNorth2
       rect:
         serializedVersion: 2
         x: 128
-        y: 129
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1026,7 +1026,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkSouth3
+      name: walkNorth3
       rect:
         serializedVersion: 2
         x: 192
@@ -1047,7 +1047,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkSouth4
+      name: walkNorth4
       rect:
         serializedVersion: 2
         x: 256
@@ -1068,7 +1068,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walkSouth5
+      name: walkNorth5
       rect:
         serializedVersion: 2
         x: 320
@@ -1156,7 +1156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 65
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1198,7 +1198,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 65
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1282,7 +1282,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 65
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1429,7 +1429,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 1
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -1523,18 +1523,18 @@ TextureImporter:
       walkEast3: -1069299791
       walkEast4: -568149589
       walkEast5: 1050376797
-      walkNorth0: -861351904
-      walkNorth1: -792042623
-      walkNorth2: -1272786223
-      walkNorth3: 478922976
-      walkNorth4: -2021968391
-      walkNorth5: 2007441806
-      walkSouth0: -931106723
-      walkSouth1: -2064675494
-      walkSouth2: 1429326646
-      walkSouth3: -161063142
-      walkSouth4: 1487095195
-      walkSouth5: 1612356534
+      walkNorth0: -931106723
+      walkNorth1: -2064675494
+      walkNorth2: 1429326646
+      walkNorth3: -161063142
+      walkNorth4: 1487095195
+      walkNorth5: 1612356534
+      walkSouth0: -861351904
+      walkSouth1: -792042623
+      walkSouth2: -1272786223
+      walkSouth3: 478922976
+      walkSouth4: -2021968391
+      walkSouth5: 2007441806
       walkWest0: -1543102663
       walkWest1: -161995508
       walkWest2: -363769971
