@@ -15,11 +15,14 @@ public class SPlayerData : ScriptableObject
     [SerializeField] private SEquipmentData hatEquipment;
     [SerializeField] private SEquipmentData bodyEquipment;
 
+    [Header("States")] 
+    [SerializeField] private Helpers.FacingDirection _facingDirection = Helpers.FacingDirection.SOUTH;
+    [SerializeField] private Helpers.PlayerCurrentState _currentState = Helpers.PlayerCurrentState.IDLE;
+    
     public float GetSpeed(bool sprinting)
     {
         return sprinting ? sprintSpeed : walkSpeed;
     }
-    
     
     public SEquipmentData GetHeadEquippedItem()
     {
@@ -32,6 +35,26 @@ public class SPlayerData : ScriptableObject
     public SEquipmentData GetBodyEquippedItem()
     {
         return bodyEquipment;
+    }
+
+    public Helpers.FacingDirection GetFacingDirection()
+    {
+        return _facingDirection;
+    }
+
+    public Helpers.PlayerCurrentState GetCurrentState()
+    {
+        return _currentState;
+    }
+    
+    public void SetFacingDirection(Helpers.FacingDirection facingDirection)
+    {
+        _facingDirection = facingDirection;
+    }
+
+    public void SetCurrentState(Helpers.PlayerCurrentState playerCurrentState)
+    {
+        _currentState = playerCurrentState;
     }
     
     public void EquipItem(SEquipmentData data)

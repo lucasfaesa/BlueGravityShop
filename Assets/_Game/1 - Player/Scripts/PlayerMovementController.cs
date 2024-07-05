@@ -16,7 +16,10 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 movementDirectionInput;
 
     private float playerSpeed;
-    
+
+    private Helpers.FacingDirection _currentFacingDirection;
+    private Helpers.PlayerCurrentState _playerCurrentState;
+        
     private void OnEnable()
     {
         _inputReader.EnableInputActions();
@@ -31,12 +34,17 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Start()
     {
+        _currentFacingDirection = _playerData.GetFacingDirection();
+        _playerCurrentState = _playerData.GetCurrentState();
+        
         playerSpeed = _playerData.GetSpeed(false);
     }
 
     private void Update()
     {
         movementDirectionInput = _inputReader.GetInputDirection().normalized;
+        
+        UpdateFacingDirection();
     }
 
     private void FixedUpdate()
@@ -47,8 +55,36 @@ public class PlayerMovementController : MonoBehaviour
     private void HandleMovement()
     {
         Vector2 velocity = movementDirectionInput * (playerSpeed * Time.fixedDeltaTime);
-        Debug.Log($"velocity: {velocity}");
+        
         _rigidbody2D.velocity = velocity;
+    }
+
+    private void UpdateFacingDirection()
+    {
+        Helpers.FacingDirection newDir = _currentFacingDirection;
+
+        if (movementDirectionInput.x > 0)
+            newDir = Helpers.FacingDirection.EAST;
+        if(movementDirectionInput.x < 0)
+            newDir = Helpers.FacingDirection.WEST;
+        
+        //y facing dir always in priority
+        if (movementDirectionInput.y > 0)
+            newDir = Helpers.FacingDirection.NORTH;
+        
+        if(movementDirectionInput.y < 0)
+            newDir = Helpers.FacingDirection.SOUTH;
+
+        if (newDir != _currentFacingDirection)
+        {
+            _currentFacingDirection = newDir;
+            _playerEvents.OnFacingDirectionChanged(_currentFacingDirection);
+        }
+    }
+
+    private void UpdateState()
+    {
+        
     }
 
     private void OnSprint(bool pressed)

@@ -22,7 +22,7 @@ public class PlayerSpritesController : MonoBehaviour
     
 
     private Helpers.FacingDirection _facingDirection = Helpers.FacingDirection.SOUTH;
-    private Helpers.PlayerCurrentState _playerCurrentState = Helpers.PlayerCurrentState.WALKING;
+    private Helpers.PlayerCurrentState _playerCurrentState = Helpers.PlayerCurrentState.IDLE;
     
     private bool _canAnimate = true;
 

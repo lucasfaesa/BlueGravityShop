@@ -17,3 +17,5 @@ MonoBehaviour:
   headEquipment: {fileID: 0}
   hatEquipment: {fileID: 0}
   bodyEquipment: {fileID: 11400000, guid: 0c673313430dace498b9a9548a0322f4, type: 2}
+  _facingDirection: 1
+  _currentState: 0
