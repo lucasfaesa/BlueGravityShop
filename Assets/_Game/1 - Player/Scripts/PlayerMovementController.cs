@@ -20,6 +20,10 @@ public class PlayerMovementController : MonoBehaviour
     private Helpers.FacingDirection _currentFacingDirection;
     private Helpers.PlayerCurrentState _playerCurrentState;
         
+    private Helpers.FacingDirection _newDir;
+    private Helpers.PlayerCurrentState _newState;
+    private bool _isSprinting;
+    
     private void OnEnable()
     {
         _inputReader.EnableInputActions();
@@ -36,6 +40,8 @@ public class PlayerMovementController : MonoBehaviour
     {
         _currentFacingDirection = _playerData.GetFacingDirection();
         _playerCurrentState = _playerData.GetCurrentState();
+
+        _newDir = _currentFacingDirection;
         
         playerSpeed = _playerData.GetSpeed(false);
     }
@@ -45,6 +51,7 @@ public class PlayerMovementController : MonoBehaviour
         movementDirectionInput = _inputReader.GetInputDirection().normalized;
         
         UpdateFacingDirection();
+        UpdateState();
     }
 
     private void FixedUpdate()
@@ -61,34 +68,45 @@ public class PlayerMovementController : MonoBehaviour
 
     private void UpdateFacingDirection()
     {
-        Helpers.FacingDirection newDir = _currentFacingDirection;
-
         if (movementDirectionInput.x > 0)
-            newDir = Helpers.FacingDirection.EAST;
+            _newDir = Helpers.FacingDirection.EAST;
         if(movementDirectionInput.x < 0)
-            newDir = Helpers.FacingDirection.WEST;
+            _newDir = Helpers.FacingDirection.WEST;
         
         //y facing dir always in priority
         if (movementDirectionInput.y > 0)
-            newDir = Helpers.FacingDirection.NORTH;
+            _newDir = Helpers.FacingDirection.NORTH;
         
         if(movementDirectionInput.y < 0)
-            newDir = Helpers.FacingDirection.SOUTH;
+            _newDir = Helpers.FacingDirection.SOUTH;
 
-        if (newDir != _currentFacingDirection)
+        if (_newDir != _currentFacingDirection)
         {
-            _currentFacingDirection = newDir;
+            _currentFacingDirection = _newDir;
             _playerEvents.OnFacingDirectionChanged(_currentFacingDirection);
         }
     }
 
     private void UpdateState()
     {
-        
+        if (movementDirectionInput.magnitude == 0)
+            _newState = Helpers.PlayerCurrentState.IDLE;
+
+        else if (_isSprinting)
+            _newState = Helpers.PlayerCurrentState.RUNNING;
+        else
+            _newState = Helpers.PlayerCurrentState.WALKING;
+
+        if (_newState != _playerCurrentState)
+        {
+            _playerCurrentState = _newState;
+            _playerEvents.OnPlayerCurrentStateChanged(_playerCurrentState);
+        }
     }
 
     private void OnSprint(bool pressed)
     {
+        _isSprinting = pressed;
         playerSpeed = _playerData.GetSpeed(pressed);
     }
 }
