@@ -50,7 +50,9 @@ public class SSpriteData : ScriptableObject
 
     public SpritesBlock GetSpriteBlockByDirection(Helpers.FacingDirection direction)
     {
-        return spritesBlocks.Find(x => x.facingDirection == direction);
+        //TODO remove later
+        var ok = spritesBlocks.Find(x => x.facingDirection == direction);
+        return ok;
     }
 
     public float GetSpriteUpdateRate(Helpers.PlayerCurrentState state)

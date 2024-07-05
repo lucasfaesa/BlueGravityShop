@@ -125,15 +125,19 @@ public class PlayerSpritesController : MonoBehaviour
         switch (spriteData.GetEquipmentType())
         {
             case Helpers.EquipmentType.BASE:
+                _equippedBaseSpriteDataSO = spriteData;
                 UpdateSprites(_baseSpriteSpriteRenderer, spriteData, _baseSpriteAnimation);
                 break;
             case Helpers.EquipmentType.BODY:
+                _equippedBodySpriteDataSO = spriteData;
                 UpdateSprites(_bodySpriteSpriteRenderer, spriteData, _bodySpriteAnimation);
                 break;
             case Helpers.EquipmentType.HEAD:
+                _equippedHeadSpriteDataSO = spriteData;
                 UpdateSprites(_headSpriteSpriteRenderer, spriteData, _headSpriteAnimation);
                 break;
             case Helpers.EquipmentType.HAT:
+                _equippedHatSpriteDataSO = spriteData;
                 UpdateSprites(_hatSpriteSpriteRenderer, spriteData, _hatSpriteAnimation);
                 break;
         }
