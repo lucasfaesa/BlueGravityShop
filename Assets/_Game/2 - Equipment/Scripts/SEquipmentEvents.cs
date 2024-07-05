@@ -8,15 +8,15 @@ public class SEquipmentEvents : ScriptableObject
 {
     //TODO changes this name?
     public event Action<SEquipmentData> CurrentEquipmentChanged;
-    public event Action<Helpers.EquipmentType> CurrentEquipmentRemoved;
+    public event Action<SEquipmentData> CurrentEquipmentRemoved;
     
     public void OnCurrentEquipmentChanged(SEquipmentData equipmentData)
     {
         CurrentEquipmentChanged?.Invoke(equipmentData);
     }
 
-    public void OnEquipmentRemove(Helpers.EquipmentType type)
+    public void OnEquipmentRemove(SEquipmentData equipmentData)
     {
-        CurrentEquipmentRemoved?.Invoke(type);
+        CurrentEquipmentRemoved?.Invoke(equipmentData);
     }
 }

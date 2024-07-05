@@ -8,7 +8,7 @@ public class PlayerSpritesController : MonoBehaviour
     [Header("SO's")] 
     [SerializeField] private SPlayerEvents playerEvents;
     [SerializeField] private SEquipmentEvents equipmentEvents;
-    
+    [SerializeField] private SPlayerData playerData;
     [Header("Base Related")] 
     [SerializeField] private SpriteRenderer _baseSpriteSpriteRenderer;
     [SerializeField] private SEquipmentData equippedBaseEquipmentDataSo;
@@ -56,6 +56,28 @@ public class PlayerSpritesController : MonoBehaviour
     {
         //base starts equipped
         _baseSpriteAnimation = new SpriteAnimation(equippedBaseEquipmentDataSo, _facingDirection, _playerCurrentState);
+        
+        var currentHeadEquipment = playerData.GetHeadEquippedItem();
+        var currentHatEquipment = playerData.GetHatEquippedItem();
+        var currentBodyEquipment = playerData.GetBodyEquippedItem();
+
+        if (currentHeadEquipment)
+        {
+            _equippedHeadEquipmentDataSo = currentHeadEquipment;
+            _headSpriteAnimation = new SpriteAnimation(currentHeadEquipment, _facingDirection, _playerCurrentState);
+        }
+
+        if (currentHatEquipment)
+        {
+            _equippedHatEquipmentDataSo = currentHatEquipment;
+            _hatSpriteAnimation = new SpriteAnimation(currentHatEquipment, _facingDirection, _playerCurrentState);
+        }
+
+        if (currentBodyEquipment)
+        {
+            _equippedBodyEquipmentDataSo = currentBodyEquipment;
+            _bodySpriteAnimation = new SpriteAnimation(currentBodyEquipment, _facingDirection, _playerCurrentState);
+        }
     }
     
     void Update()
@@ -170,9 +192,9 @@ public class PlayerSpritesController : MonoBehaviour
             _hatSpriteAnimation.Reset(_hatSpriteSpriteRenderer);
     }
 
-    private void OnEquipmentRemoved(Helpers.EquipmentType type)
+    private void OnEquipmentRemoved(SEquipmentData data)
     {
-        switch (type)
+        switch (data.GetEquipmentType())
         {
             case Helpers.EquipmentType.BASE:
                 _baseSpriteAnimation.Deactivate(_baseSpriteSpriteRenderer);

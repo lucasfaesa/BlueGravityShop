@@ -20,6 +20,6 @@ public class EquipItemBehavior : MonoBehaviour
 
     public void UnequipItem()
     {
-        _equipmentEvents.OnEquipmentRemove(equipmentDataSo.GetEquipmentType());
+        _equipmentEvents.OnEquipmentRemove(equipmentDataSo);
     }
 }

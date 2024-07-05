@@ -251,7 +251,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6584117451445209605}
         m_TargetAssemblyTypeName: InventoryItemDisplay, Assembly-CSharp
-        m_MethodName: EquipItem
+        m_MethodName: ToggleEquipmentStatus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

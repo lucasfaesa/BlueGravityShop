@@ -21,8 +21,11 @@ public class InventoryItemDisplay : MonoBehaviour
         _equipmentName.text = _equipment.GetEquipmentName();
     }
 
-    public void EquipItem()
+    public void ToggleEquipmentStatus()
     {
-        _equipmentEvents.OnCurrentEquipmentChanged(_equipment);
+        if(_equipment.GetCurrentlyEquipped())
+            _equipmentEvents.OnEquipmentRemove(_equipment);
+        else
+            _equipmentEvents.OnCurrentEquipmentChanged(_equipment);
     }
 }

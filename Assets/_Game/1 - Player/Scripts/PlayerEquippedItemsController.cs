@@ -12,13 +12,15 @@ public class PlayerEquippedItemsController : MonoBehaviour
     private void OnEnable()
     {
         equipmentEvents.CurrentEquipmentChanged += OnEquipmentChanged;
+        equipmentEvents.CurrentEquipmentRemoved += OnEquipmentRemoved;
     }
 
     private void OnDisable()
     {
         equipmentEvents.CurrentEquipmentChanged -= OnEquipmentChanged;
+        equipmentEvents.CurrentEquipmentRemoved -= OnEquipmentRemoved;
     }
-
+    
     private void OnEquipmentChanged(SEquipmentData sEquipmentData)
     {
         switch (sEquipmentData.GetEquipmentType())
@@ -33,5 +35,13 @@ public class PlayerEquippedItemsController : MonoBehaviour
                 _playerData.SetBodyEquippedItem(sEquipmentData);
                 break;
         }
+        
+        sEquipmentData.SetCurrentlyEquipped(true);
+    }
+    
+    private void OnEquipmentRemoved(SEquipmentData sEquipmentData)
+    {
+        sEquipmentData.SetCurrentlyEquipped(false);
+        _playerData.UnequipItem(sEquipmentData);
     }
 }

@@ -36,4 +36,21 @@ public class SPlayerData : ScriptableObject
     {
         bodyEquipment = data;
     }
+    
+    public void UnequipItem(SEquipmentData data)
+    {
+        switch (data.GetEquipmentType())
+        {
+            case Helpers.EquipmentType.HEAD:
+                headEquipment = null;
+                break;
+            case Helpers.EquipmentType.HAT:
+                hatEquipment = null;
+                break;
+            case Helpers.EquipmentType.BODY:
+                bodyEquipment = null;
+                break;
+        }
+        
+    }
 }

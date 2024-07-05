@@ -23,6 +23,8 @@ public class SEquipmentData : ScriptableObject
     [Space]
     [SerializeField] private List<SpritesBlock> spritesBlocks = new();
 
+    private bool _currentlyEquipped;
+    
     public Helpers.EquipmentType GetEquipmentType()
     {
         return _equipmentType;
@@ -40,6 +42,16 @@ public class SEquipmentData : ScriptableObject
     public int GetEquipmentBuyValue()
     {
         return equipmentBuyValue;
+    }
+
+    public bool GetCurrentlyEquipped()
+    {
+        return _currentlyEquipped;
+    }
+
+    public void SetCurrentlyEquipped(bool status)
+    {
+        _currentlyEquipped = status;
     }
     
     public int GetEquipmentDepreciatedValue()
