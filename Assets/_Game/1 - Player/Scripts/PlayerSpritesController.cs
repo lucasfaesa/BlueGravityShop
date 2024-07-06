@@ -65,18 +65,21 @@ public class PlayerSpritesController : MonoBehaviour
         {
             _equippedHeadEquipmentDataSo = currentHeadEquipment;
             _headSpriteAnimation = new SpriteAnimation(currentHeadEquipment, _facingDirection, _playerCurrentState);
+            _headSpriteSpriteRenderer.sprite = _headSpriteAnimation.Sprites[0];
         }
 
         if (currentHatEquipment)
         {
             _equippedHatEquipmentDataSo = currentHatEquipment;
             _hatSpriteAnimation = new SpriteAnimation(currentHatEquipment, _facingDirection, _playerCurrentState);
+            _hatSpriteSpriteRenderer.sprite = _hatSpriteAnimation.Sprites[0];
         }
 
         if (currentBodyEquipment)
         {
             _equippedBodyEquipmentDataSo = currentBodyEquipment;
             _bodySpriteAnimation = new SpriteAnimation(currentBodyEquipment, _facingDirection, _playerCurrentState);
+            _bodySpriteSpriteRenderer.sprite = _bodySpriteAnimation.Sprites[0];
         }
     }
     

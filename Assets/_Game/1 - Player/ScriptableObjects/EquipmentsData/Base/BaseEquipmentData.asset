@@ -17,7 +17,7 @@ MonoBehaviour:
   equipmentName: BASE
   equipmentBuyValue: 0
   valueDepreciationPercent: 10
-  _idleUpdateRate: 1
+  _idleUpdateRate: 0.1
   _walkUpdateRate: 0.15
   _runUpdateRate: 0.2
   spritesBlocks:
