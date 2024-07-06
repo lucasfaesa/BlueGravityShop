@@ -16,4 +16,4 @@ MonoBehaviour:
   equipmentsList:
   - {fileID: 11400000, guid: 31356020073655b46a8fc70a1e01acbb, type: 2}
   - {fileID: 11400000, guid: 0c673313430dace498b9a9548a0322f4, type: 2}
-  - {fileID: 11400000, guid: 0dfbe6c10a028eb499b57432531a8503, type: 2}
+  - {fileID: 11400000, guid: f56b17c5b77baea409c0e28fd682874b, type: 2}
