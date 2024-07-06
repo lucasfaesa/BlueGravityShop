@@ -56,27 +56,35 @@ public class SPlayerData : ScriptableObject
     {
         _currentState = playerCurrentState;
     }
+
+    public SEquipmentData GetEquippedItemByType(Helpers.EquipmentType type)
+    {
+        switch (type)
+        {
+            case Helpers.EquipmentType.HEAD:
+                return headEquipment;
+                
+            case Helpers.EquipmentType.HAT:
+                return hatEquipment;
+                
+            case Helpers.EquipmentType.BODY:
+                return bodyEquipment;
+        }
+
+        return null;
+    }
     
     public void EquipItem(SEquipmentData data)
     {
         switch (data.GetEquipmentType())
         {
             case Helpers.EquipmentType.HEAD:
-                if(headEquipment)
-                    headEquipment.SetCurrentlyEquipped(false);
-                
                 headEquipment = data;
                 break;
             case Helpers.EquipmentType.HAT:
-                if(hatEquipment)
-                    hatEquipment.SetCurrentlyEquipped(false);
-                
                 hatEquipment = data;
                 break;
             case Helpers.EquipmentType.BODY:
-                if(bodyEquipment)
-                    bodyEquipment.SetCurrentlyEquipped(false);
-                
                 bodyEquipment = data;
                 break;
         }

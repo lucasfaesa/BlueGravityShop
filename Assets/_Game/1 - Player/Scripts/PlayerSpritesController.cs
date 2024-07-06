@@ -40,16 +40,16 @@ public class PlayerSpritesController : MonoBehaviour
     {
         playerEvents.FacingDirectionChanged += OnPlayerDirectionChanged;
         playerEvents.PlayerCurrentStateChanged += OnPlayerCurrentStateChanged;
-        equipmentEvents.ItemEquipped += OnItemEquipped;
-        equipmentEvents.ItemUnequipped += OnItemUnequipped;
+        equipmentEvents.ItemEquipped += OnEquipItem;
+        equipmentEvents.UnequippedItem += OnUnequipItem;
     }
 
     private void OnDisable()
     {
         playerEvents.FacingDirectionChanged -= OnPlayerDirectionChanged;
         playerEvents.PlayerCurrentStateChanged -= OnPlayerCurrentStateChanged;
-        equipmentEvents.ItemEquipped -= OnItemEquipped;
-        equipmentEvents.ItemUnequipped -= OnItemUnequipped;
+        equipmentEvents.ItemEquipped -= OnEquipItem;
+        equipmentEvents.UnequippedItem -= OnUnequipItem;
     }
 
     void Start()
@@ -144,7 +144,7 @@ public class PlayerSpritesController : MonoBehaviour
             _hatSpriteAnimation.SetData(_hatSpriteSpriteRenderer, _equippedHatEquipmentDataSo, facingDirection, state);
     }
 
-    private void OnItemEquipped(SEquipmentData equipmentData)
+    private void OnEquipItem(SEquipmentData equipmentData)
     {
         switch (equipmentData.GetEquipmentType())
         {
@@ -192,7 +192,7 @@ public class PlayerSpritesController : MonoBehaviour
             _hatSpriteAnimation.Reset(_hatSpriteSpriteRenderer);
     }
 
-    private void OnItemUnequipped(SEquipmentData data)
+    private void OnUnequipItem(SEquipmentData data)
     {
         switch (data.GetEquipmentType())
         {

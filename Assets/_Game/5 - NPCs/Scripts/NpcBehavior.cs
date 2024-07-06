@@ -10,6 +10,7 @@ public class NpcBehavior : MonoBehaviour
     [SerializeField] private SCharacterInventory npcInventory;
 
     private bool _inTradingMode;
+    private bool _insideTradingArea;
     
     private void OnEnable()
     {
@@ -24,15 +25,19 @@ public class NpcBehavior : MonoBehaviour
     public void OnPlayerEnteredTrigger()
     {
         uiEvents.OnShowInteractionBanner();
+        _insideTradingArea = true;
     }
 
     public void OnPlayerLeftTrigger()
     {
         uiEvents.OnHideInteractionBanner();
+        _insideTradingArea = false;
     }
 
     private void Interact(bool _)
     {
+        if (!_insideTradingArea) return;
+        
         _inTradingMode = !_inTradingMode;
         if(_inTradingMode)
             uiEvents.OnOpenTradingWindow(npcInventory);

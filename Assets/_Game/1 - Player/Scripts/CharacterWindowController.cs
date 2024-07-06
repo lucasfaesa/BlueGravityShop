@@ -25,7 +25,7 @@ public class CharacterWindowController : MonoBehaviour
         _uiEvents.OpenCharacterWindow += OpenCharacterWindow;
         _uiEvents.CloseCharacterWindow += CloseCharacterWindow;
         _equipmentEvents.ItemEquipped += OnItemEquipped;
-        _equipmentEvents.ItemUnequipped += OnItemUnequipped;
+        _equipmentEvents.UnequippedItem += OnItemUnequipped;
         _inputReader.Character += InventoryKeyPressed;
     }
 
@@ -34,7 +34,7 @@ public class CharacterWindowController : MonoBehaviour
         _uiEvents.OpenCharacterWindow -= OpenCharacterWindow;
         _uiEvents.CloseCharacterWindow -= CloseCharacterWindow;
         _equipmentEvents.ItemEquipped -= OnItemEquipped;
-        _equipmentEvents.ItemUnequipped -= OnItemUnequipped;
+        _equipmentEvents.UnequipItemRequest -= OnItemUnequipped;
         _inputReader.Character += InventoryKeyPressed;
     }
     

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784bf7e484b13e3409b18f47f249109f, type: 3}
   m_Name: DEBUG-PlayerInventory
   m_EditorClassIdentifier: 
-  gold: 9998293
+  gold: 9997993
   equipmentsList:
   - {fileID: 11400000, guid: 0c673313430dace498b9a9548a0322f4, type: 2}
+  - {fileID: 11400000, guid: ce77b39bfd6536e4797105ffa6c86d72, type: 2}

@@ -11,15 +11,16 @@ public class EquipItemBehavior : MonoBehaviour
     //TODO Remove later
     [Header("Debug")]
     [SerializeField] private SEquipmentData equipmentDataSo;
-
-    //TODO change this name
+    
+    //debug
     public void EquipItem()
     {
-        _equipmentEvents.OnItemEquipped(equipmentDataSo);
+        _equipmentEvents.OnEquipItemRequest(equipmentDataSo);
     }
 
+    //debug
     public void UnequipItem()
     {
-        _equipmentEvents.OnItemUnequipped(equipmentDataSo);
+        _equipmentEvents.OnUnequipItemRequest(equipmentDataSo);
     }
 }

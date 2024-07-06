@@ -13,15 +13,15 @@ public class PlayerEquippedItemsController : MonoBehaviour
     private void OnEnable()
     {
         tradingEvents.EquipmentSold += OnEquipmentSold;
-        equipmentEvents.ItemEquipped += OnItemEquipped;
-        equipmentEvents.ItemUnequipped += OnItemUnequipped;
+        equipmentEvents.EquipItemRequest += OnEquipItemRequest;
+        equipmentEvents.UnequipItemRequest += OnUnequipItemRequest;
     }
 
     private void OnDisable()
     {
         tradingEvents.EquipmentSold -= OnEquipmentSold;
-        equipmentEvents.ItemEquipped -= OnItemEquipped;
-        equipmentEvents.ItemUnequipped -= OnItemUnequipped;
+        equipmentEvents.EquipItemRequest -= OnEquipItemRequest;
+        equipmentEvents.UnequipItemRequest -= OnUnequipItemRequest;
     }
 
     private void Awake()
@@ -34,19 +34,29 @@ public class PlayerEquippedItemsController : MonoBehaviour
             _playerData.GetBodyEquippedItem().SetCurrentlyEquipped(true);
     }
 
-    private void OnItemEquipped(SEquipmentData sEquipmentData)
+    private void OnEquipItemRequest(SEquipmentData sEquipmentData)
     {
+        SEquipmentData itemToBeUnequipped = _playerData.GetEquippedItemByType(sEquipmentData.GetEquipmentType());
+
+        if (itemToBeUnequipped)
+        {
+            _playerData.UnequipItem(itemToBeUnequipped);
+            equipmentEvents.OnUnequipItem(sEquipmentData);
+        }
+        
         _playerData.EquipItem(sEquipmentData);
+        equipmentEvents.OnEquipItem(sEquipmentData);
     }
     
-    private void OnItemUnequipped(SEquipmentData sEquipmentData)
+    private void OnUnequipItemRequest(SEquipmentData sEquipmentData)
     {
         _playerData.UnequipItem(sEquipmentData);
+        equipmentEvents.OnUnequipItem(sEquipmentData);
     }
 
     private void OnEquipmentSold(SEquipmentData sEquipmentData)
     {
         if (sEquipmentData.GetCurrentlyEquipped())
-            equipmentEvents.OnItemUnequipped(sEquipmentData);
+            equipmentEvents.OnUnequipItemRequest(sEquipmentData);
     }
 }

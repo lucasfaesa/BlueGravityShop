@@ -27,7 +27,7 @@ public class InventoryWindowController : MonoBehaviour
     private void OnEnable()
     {
         _equipmentEvents.ItemEquipped += RefreshInventory;
-        _equipmentEvents.ItemUnequipped += RefreshInventory;
+        _equipmentEvents.UnequippedItem += RefreshInventory;
         _tradingEvents.EquipmentBought += RefreshInventory;
         _tradingEvents.EquipmentSold += RefreshInventory;
         _uiEvents.OpenInventoryWindow += OpenInventory;
@@ -38,7 +38,7 @@ public class InventoryWindowController : MonoBehaviour
     private void OnDisable()
     {
         _equipmentEvents.ItemEquipped -= RefreshInventory;
-        _equipmentEvents.ItemUnequipped -= RefreshInventory;
+        _equipmentEvents.UnequippedItem -= RefreshInventory;
         _tradingEvents.EquipmentBought -= RefreshInventory;
         _tradingEvents.EquipmentSold -= RefreshInventory;
         _uiEvents.OpenInventoryWindow -= OpenInventory;
