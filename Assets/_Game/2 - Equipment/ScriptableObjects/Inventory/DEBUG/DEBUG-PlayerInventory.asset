@@ -15,4 +15,3 @@ MonoBehaviour:
   gold: 9997993
   equipmentsList:
   - {fileID: 11400000, guid: 0c673313430dace498b9a9548a0322f4, type: 2}
-  - {fileID: 11400000, guid: ce77b39bfd6536e4797105ffa6c86d72, type: 2}

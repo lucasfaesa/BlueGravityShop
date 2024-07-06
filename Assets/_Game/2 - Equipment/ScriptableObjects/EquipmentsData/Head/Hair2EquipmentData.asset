@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hair2EquipmentData
   m_EditorClassIdentifier: 
   _equipmentType: 1
-  equipmentThumbnail: {fileID: 21300000, guid: 1ed77747bf565c349b3acc17cadb3755, type: 3}
+  equipmentThumbnail: {fileID: 21300000, guid: 741fec84a31c33542ab17682ed860167, type: 3}
   equipmentName: Hair 2
   equipmentBuyValue: 15
   valueDepreciationPercent: 50

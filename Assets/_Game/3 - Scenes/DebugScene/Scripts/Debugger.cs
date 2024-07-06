@@ -44,4 +44,5 @@ public class Debugger : MonoBehaviour
         else
             uiEvents.OnCloseCharacterWindow();
     }
+    
 }

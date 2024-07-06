@@ -73,3 +73,4 @@ MonoBehaviour:
     runningSprites:
     - {fileID: -1943405443, guid: 7f74c1268b388ae4cb273f8eb6856365, type: 3}
     - {fileID: -953008396, guid: 7f74c1268b388ae4cb273f8eb6856365, type: 3}
+  _currentlyEquipped: 0

@@ -23,7 +23,7 @@ public class SEquipmentData : ScriptableObject
     [Space]
     [SerializeField] private List<SpritesBlock> spritesBlocks = new();
 
-    private bool _currentlyEquipped;
+    [SerializeField] private bool _currentlyEquipped;
     
     public Helpers.EquipmentType GetEquipmentType()
     {
@@ -118,6 +118,10 @@ public class SEquipmentData : ScriptableObject
         }
     }
 
+    private void OnDisable()
+    {
+        _currentlyEquipped = false;
+    }
 
     [Serializable]
     public struct SpritesBlock
