@@ -14,13 +14,11 @@ public class NpcBehavior : MonoBehaviour
     private void OnEnable()
     {
         _inputReader.Interact += Interact;
-        uiEvents.CloseTradingWindow += OnLeftTrading;
     }
 
     private void OnDisable()
     {
         _inputReader.Interact -= Interact;
-        uiEvents.CloseTradingWindow -= OnLeftTrading;
     }
 
     public void OnPlayerEnteredTrigger()
@@ -35,15 +33,11 @@ public class NpcBehavior : MonoBehaviour
 
     private void Interact(bool _)
     {
-        if (_inTradingMode) return;
-
-        _inTradingMode = true;
-        uiEvents.OnOpenTradingWindow(npcInventory);
-    }
-
-    private void OnLeftTrading()
-    {
-        _inTradingMode = false;
+        _inTradingMode = !_inTradingMode;
+        if(_inTradingMode)
+            uiEvents.OnOpenTradingWindow(npcInventory);
+        else
+            uiEvents.OnCloseTradingWindow();
     }
     
 }

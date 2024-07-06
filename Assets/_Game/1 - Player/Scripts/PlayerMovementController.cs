@@ -65,6 +65,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_canMove) return;
+        
         HandleMovement();
     }
 
@@ -122,6 +124,12 @@ public class PlayerMovementController : MonoBehaviour
     private void InTrade(SCharacterInventory _)
     {
         _canMove = false;
+        movementDirectionInput = Vector2.zero;
+        _rigidbody2D.velocity = Vector2.zero;
+        
+        _playerCurrentState = Helpers.PlayerCurrentState.IDLE;
+        _playerEvents.OnPlayerCurrentStateChanged(Helpers.PlayerCurrentState.IDLE);
+        
     }
 
     private void LeftTrade()

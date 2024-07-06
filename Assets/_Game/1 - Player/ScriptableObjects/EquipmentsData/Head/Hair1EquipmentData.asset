@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _equipmentType: 1
   equipmentThumbnail: {fileID: 21300000, guid: 741fec84a31c33542ab17682ed860167, type: 3}
-  equipmentName: Hair1
+  equipmentName: Hair 1
   equipmentBuyValue: 120
   valueDepreciationPercent: 10
   _idleUpdateRate: 1
