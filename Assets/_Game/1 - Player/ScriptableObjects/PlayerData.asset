@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 40
   sprintSpeed: 80
+  playerInventory: {fileID: 11400000, guid: c3442afe3d05f954fbfc5fc8bad2d19f, type: 2}
   headEquipment: {fileID: 0}
   hatEquipment: {fileID: 0}
-  bodyEquipment: {fileID: 11400000, guid: 0c673313430dace498b9a9548a0322f4, type: 2}
+  bodyEquipment: {fileID: 11400000, guid: 1ac2b6891fe48b141a89c2fee45ea511, type: 2}
   _facingDirection: 1
   _currentState: 0

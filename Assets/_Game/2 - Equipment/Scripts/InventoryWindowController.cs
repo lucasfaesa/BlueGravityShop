@@ -10,7 +10,7 @@ public class InventoryWindowController : MonoBehaviour
     [SerializeField] private STradingEvents _tradingEvents;
     [SerializeField] private SUIEvents _uiEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
-    [SerializeField] private SCharacterInventory _playerInventory;
+    [SerializeField] private SPlayerData _playerData;
     [SerializeField] private SInputReader _inputReader;
     
     [Header("Player")] 
@@ -60,7 +60,7 @@ public class InventoryWindowController : MonoBehaviour
     {
         _isInventoryOpen = true;
         
-        SetDisplayData(_playerInventory, _instantiatedPlayerInventoryItemDisplays);
+        SetDisplayData(_playerData.GetPlayerInventory(), _instantiatedPlayerInventoryItemDisplays);
         
         _inventoryWindow.gameObject.SetActive(true);
     }
@@ -89,7 +89,7 @@ public class InventoryWindowController : MonoBehaviour
     {
         HideAllEquipmentsDisplay();
         
-        SetDisplayData(_playerInventory, _instantiatedPlayerInventoryItemDisplays);
+        SetDisplayData(_playerData.GetPlayerInventory(), _instantiatedPlayerInventoryItemDisplays);
     }
 
     private void CloseInventory()

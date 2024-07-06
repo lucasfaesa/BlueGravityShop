@@ -8,21 +8,21 @@ using UnityEngine.UI;
 public class GoldDisplay : MonoBehaviour
 {
     
-    [SerializeField] private SCharacterInventory _playerInventory;
+    [SerializeField] private SPlayerData _playerData;
     [Space] 
     [SerializeField] private TextMeshProUGUI _goldQtyText;
     [SerializeField] private HorizontalLayoutGroup _horizontalLayoutGroup;
 
     private void OnEnable()
     {
-        UpdateText(_playerInventory.GetGold());
+        UpdateText(_playerData.GetPlayerInventory().GetGold());
         
-        _playerInventory.GoldUpdated += UpdateText;
+        _playerData.GetPlayerInventory().GoldUpdated += UpdateText;
     }
 
     private void OnDisable()
     {
-        _playerInventory.GoldUpdated -= UpdateText;
+        _playerData.GetPlayerInventory().GoldUpdated -= UpdateText;
     }
     
     private void UpdateText(int value)

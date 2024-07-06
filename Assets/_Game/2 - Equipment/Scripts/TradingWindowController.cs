@@ -7,7 +7,7 @@ public class TradingWindowController : MonoBehaviour
 {
     [Header("SOs")] 
     [SerializeField] private STradingEvents _tradingEventsSo;
-    [SerializeField] private SCharacterInventory _playerInventory;
+    [SerializeField] private SPlayerData _playerData;
     [SerializeField] private SUIEvents _uiEvents;
     
     [Header("Player")] 
@@ -44,7 +44,7 @@ public class TradingWindowController : MonoBehaviour
     {
         npcCharacterInventory = npcInventory;
         
-        SetDisplayData(_playerInventory, _instantiatedPlayerTradingItemDisplays, true);
+        SetDisplayData(_playerData.GetPlayerInventory(), _instantiatedPlayerTradingItemDisplays, true);
         
         SetDisplayData(npcInventory, _instantiatedNpcTradingItemDisplays, false);
         
@@ -77,7 +77,7 @@ public class TradingWindowController : MonoBehaviour
     {
         HideAllEquipmentsDisplay();
         
-        SetDisplayData(_playerInventory, _instantiatedPlayerTradingItemDisplays, true);
+        SetDisplayData(_playerData.GetPlayerInventory(), _instantiatedPlayerTradingItemDisplays, true);
         
         SetDisplayData(npcInventory, _instantiatedNpcTradingItemDisplays, false);
     }
@@ -114,13 +114,13 @@ public class TradingWindowController : MonoBehaviour
 
     private void OnBuyEquipmentRequest(SEquipmentData equipmentData)
     {
-        if (!_playerInventory.HasGold(equipmentData.GetEquipmentBuyValue()))
+        if (!_playerData.GetPlayerInventory().HasGold(equipmentData.GetEquipmentBuyValue()))
             return;
         
         npcCharacterInventory.RemoveEquipment(equipmentData);
-        _playerInventory.AddEquipment(equipmentData);
+        _playerData.GetPlayerInventory().AddEquipment(equipmentData);
         
-        _playerInventory.SpendGold(equipmentData.GetEquipmentBuyValue());
+        _playerData.GetPlayerInventory().SpendGold(equipmentData.GetEquipmentBuyValue());
         _tradingEventsSo.OnEquipmentBought(equipmentData);
         
         
@@ -130,9 +130,9 @@ public class TradingWindowController : MonoBehaviour
     private void OnSellEquipmentRequest(SEquipmentData equipmentData)
     {
         npcCharacterInventory.AddEquipment(equipmentData);
-        _playerInventory.RemoveEquipment(equipmentData);
+        _playerData.GetPlayerInventory().RemoveEquipment(equipmentData);
         
-        _playerInventory.AddGold(equipmentData.GetEquipmentDepreciatedValue());
+        _playerData.GetPlayerInventory().AddGold(equipmentData.GetEquipmentDepreciatedValue());
         _tradingEventsSo.OnEquipmentSold(equipmentData);
         
         RefreshShop(npcCharacterInventory);

@@ -9,12 +9,15 @@ public class SPlayerData : ScriptableObject
     [Header("Status Related")] 
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float sprintSpeed = 10f;
+
+    [Header("Player Inventory")] 
+    [SerializeField] private SCharacterInventory playerInventory;
     
     [Header("Equipment Related")]
     [SerializeField] private SEquipmentData headEquipment;
     [SerializeField] private SEquipmentData hatEquipment;
     [SerializeField] private SEquipmentData bodyEquipment;
-
+    
     [Header("States")] 
     [SerializeField] private Helpers.FacingDirection _facingDirection = Helpers.FacingDirection.SOUTH;
     [SerializeField] private Helpers.PlayerCurrentState _currentState = Helpers.PlayerCurrentState.IDLE;
@@ -45,6 +48,11 @@ public class SPlayerData : ScriptableObject
     public Helpers.PlayerCurrentState GetCurrentState()
     {
         return _currentState;
+    }
+
+    public SCharacterInventory GetPlayerInventory()
+    {
+        return playerInventory;
     }
     
     public void SetFacingDirection(Helpers.FacingDirection facingDirection)

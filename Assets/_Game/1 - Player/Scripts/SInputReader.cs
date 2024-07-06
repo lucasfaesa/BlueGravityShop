@@ -13,11 +13,13 @@ public class SInputReader : ScriptableObject
     [SerializeField] private InputActionReference sprintReference;
     [SerializeField] private InputActionReference inventoryReference;
     [SerializeField] private InputActionReference characterReference;
-
+    [SerializeField] private InputActionReference quitGameReference;
+    
     public event Action<bool> Interact;
     public event Action<bool> Sprint;
     public event Action<bool> Inventory;
     public event Action<bool> Character;
+    public event Action<bool> QuitGame;
 
     public Vector2 GetInputDirection()
     {
@@ -31,6 +33,7 @@ public class SInputReader : ScriptableObject
         sprintReference.action.Enable();
         inventoryReference.action.Enable();
         characterReference.action.Enable();
+        quitGameReference.action.Enable();
         AddListeners();
     }
     
@@ -41,6 +44,7 @@ public class SInputReader : ScriptableObject
         sprintReference.action.Disable();
         inventoryReference.action.Disable();
         characterReference.action.Disable();
+        quitGameReference.action.Disable();
         RemoveListeners();
     }
 
@@ -51,6 +55,7 @@ public class SInputReader : ScriptableObject
         sprintReference.action.canceled += OnSprintCanceled;
         inventoryReference.action.performed += OnInventoryPerformed;
         characterReference.action.performed += OnCharacterPerformed;
+        quitGameReference.action.performed += OnQuitGamePerformed;
     }
 
     private void RemoveListeners()
@@ -60,6 +65,7 @@ public class SInputReader : ScriptableObject
         sprintReference.action.canceled -= OnSprintCanceled;
         inventoryReference.action.performed -= OnInventoryPerformed;
         characterReference.action.performed -= OnCharacterPerformed;
+        quitGameReference.action.performed -= OnQuitGamePerformed;
     }
 
     private void OnInteractPerformed(InputAction.CallbackContext callbackContext)
@@ -85,5 +91,10 @@ public class SInputReader : ScriptableObject
     private void OnCharacterPerformed(InputAction.CallbackContext callbackContext)
     {
         Character?.Invoke(callbackContext.ReadValueAsButton());
+    }
+    
+    private void OnQuitGamePerformed(InputAction.CallbackContext callbackContext)
+    {
+        QuitGame?.Invoke(callbackContext.ReadValueAsButton());
     }
 }
