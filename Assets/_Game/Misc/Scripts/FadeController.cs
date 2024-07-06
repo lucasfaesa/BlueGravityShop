@@ -16,7 +16,7 @@ public class FadeController : MonoBehaviour
     
     private void Awake()
     {
-        if (_canFade) return;
+        if (!_canFade) return;
         
         _blackFade.color = Color.black;
         FadeOut();

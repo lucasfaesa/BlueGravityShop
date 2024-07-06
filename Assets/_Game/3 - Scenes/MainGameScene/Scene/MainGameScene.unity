@@ -650,6 +650,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1200147106}
     m_Modifications:
+    - target: {fileID: 954470432261705679, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 954470432261705679, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 954470432261705679, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887204951477989273, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887204951477989273, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887204951477989273, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 62.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887204951477989273, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 51.205
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887204951477989273, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.5985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321837942048089226, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684543990314460267, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -733,6 +769,18 @@ PrefabInstance:
     - target: {fileID: 6071977562507884948, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
       propertyPath: m_Name
       value: PlayerInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037773676517707919, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037773676517707919, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725106470320281710, guid: cb547f6014d24ce4c905bca96dbf7dc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1461,7 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
