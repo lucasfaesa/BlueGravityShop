@@ -9,6 +9,7 @@ public class PlayerSpritesController : MonoBehaviour
     [SerializeField] private SPlayerEvents playerEvents;
     [SerializeField] private SEquipmentEvents equipmentEvents;
     [SerializeField] private SPlayerData playerData;
+    
     [Header("Base Related")] 
     [SerializeField] private SpriteRenderer _baseSpriteSpriteRenderer;
     [SerializeField] private SEquipmentData equippedBaseEquipmentDataSo;

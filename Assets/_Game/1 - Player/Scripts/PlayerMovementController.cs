@@ -23,6 +23,7 @@ public class PlayerMovementController : MonoBehaviour
         
     private Helpers.FacingDirection _newDir;
     private Helpers.PlayerCurrentState _newState;
+    
     private bool _isSprinting;
 
     private bool _canMove = true;
