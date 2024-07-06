@@ -9,6 +9,7 @@ public class CharacterWindowController : MonoBehaviour
     [SerializeField] private SUIEvents _uiEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
     [SerializeField] private SPlayerData _playerData;
+    [SerializeField] private SInputReader _inputReader;
     
     [Header("Components")] 
     [SerializeField] private Transform window;
@@ -17,12 +18,15 @@ public class CharacterWindowController : MonoBehaviour
     [SerializeField] private InventoryItemDisplay hatItemDisplay;
     [SerializeField] private InventoryItemDisplay bodyItemDisplay;
 
+    private bool _isCharacterWindowOpen = false;
+    
     private void OnEnable()
     {
         _uiEvents.OpenCharacterWindow += OpenCharacterWindow;
         _uiEvents.CloseCharacterWindow += CloseCharacterWindow;
         _equipmentEvents.ItemEquipped += OnItemEquipped;
         _equipmentEvents.ItemUnequipped += OnItemUnequipped;
+        _inputReader.Character += InventoryKeyPressed;
     }
 
     private void OnDisable()
@@ -31,22 +35,36 @@ public class CharacterWindowController : MonoBehaviour
         _uiEvents.CloseCharacterWindow -= CloseCharacterWindow;
         _equipmentEvents.ItemEquipped -= OnItemEquipped;
         _equipmentEvents.ItemUnequipped -= OnItemUnequipped;
+        _inputReader.Character += InventoryKeyPressed;
     }
-    
     
     private void Start()
     {
         UpdateCharacterEquipments();
     }
+    
+    private void InventoryKeyPressed(bool _)
+    {
+        _isCharacterWindowOpen = !_isCharacterWindowOpen;
+        
+        if(_isCharacterWindowOpen)
+            _uiEvents.OnOpenCharacterWindow();
+        else
+            _uiEvents.OnCloseCharacterWindow();
+    }
 
     private void OpenCharacterWindow()
     {
+        _isCharacterWindowOpen = true;
+        
         UpdateCharacterEquipments();
         window.gameObject.SetActive(true);
     }
     
     private void CloseCharacterWindow()
     {
+        _isCharacterWindowOpen = false;
+        
         window.gameObject.SetActive(false);
     }
     
