@@ -18,3 +18,4 @@ MonoBehaviour:
   inventoryReference: {fileID: 1460704760712563304, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
   characterReference: {fileID: -5790144983813845668, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
   quitGameReference: {fileID: 4145008142736469906, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
+  enterReference: {fileID: -3768429025242244930, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}

@@ -24,4 +24,9 @@ public class FadeController : MonoBehaviour
     {
         _blackFade.DOFade( 0f, _fadeTime);
     }
+
+    public void FadeIn()
+    {
+        _blackFade.DOFade( 1f, _fadeTime);
+    }
 }
