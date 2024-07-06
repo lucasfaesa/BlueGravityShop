@@ -11,6 +11,7 @@ public class InventoryWindowController : MonoBehaviour
     [SerializeField] private SUIEvents _uiEvents;
     [SerializeField] private SEquipmentEvents _equipmentEvents;
     [SerializeField] private SCharacterInventory _playerInventory;
+    [SerializeField] private SInputReader _inputReader;
     
     [Header("Player")] 
     [SerializeField] private Transform _inventoryPanelContent;
@@ -21,6 +22,8 @@ public class InventoryWindowController : MonoBehaviour
     
     private List<InventoryItemDisplay> _instantiatedPlayerInventoryItemDisplays = new();
 
+    private bool _isInventoryOpen = false;
+    
     private void OnEnable()
     {
         _equipmentEvents.ItemEquipped += RefreshInventory;
@@ -29,6 +32,7 @@ public class InventoryWindowController : MonoBehaviour
         _tradingEvents.EquipmentSold += RefreshInventory;
         _uiEvents.OpenInventoryWindow += OpenInventory;
         _uiEvents.CloseInventoryWindow += CloseInventory;
+        _inputReader.Inventory += InventoryKeyPressed;
     }
 
     private void OnDisable()
@@ -39,10 +43,23 @@ public class InventoryWindowController : MonoBehaviour
         _tradingEvents.EquipmentSold -= RefreshInventory;
         _uiEvents.OpenInventoryWindow -= OpenInventory;
         _uiEvents.CloseInventoryWindow -= CloseInventory;
+        _inputReader.Inventory -= InventoryKeyPressed;
+    }
+
+    private void InventoryKeyPressed(bool _)
+    {
+        _isInventoryOpen = !_isInventoryOpen;
+        
+        if(_isInventoryOpen)
+            _uiEvents.OnOpenInventoryWindow();
+        else
+            _uiEvents.OnCloseInventoryWindow();
     }
     
     private void OpenInventory()
     {
+        _isInventoryOpen = true;
+        
         SetDisplayData(_playerInventory, _instantiatedPlayerInventoryItemDisplays);
         
         _inventoryWindow.gameObject.SetActive(true);
@@ -77,6 +94,7 @@ public class InventoryWindowController : MonoBehaviour
 
     private void CloseInventory()
     {
+        _isInventoryOpen = false;
         _inventoryWindow.gameObject.SetActive(false);
         
         HideAllEquipmentsDisplay();

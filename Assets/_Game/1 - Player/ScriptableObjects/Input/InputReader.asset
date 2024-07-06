@@ -15,3 +15,5 @@ MonoBehaviour:
   moveReference: {fileID: -6201745596057807697, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
   interactReference: {fileID: -5266005516431588970, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
   sprintReference: {fileID: 458544813520860773, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
+  inventoryReference: {fileID: 1460704760712563304, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
+  characterReference: {fileID: -5790144983813845668, guid: 70e0f8fa0d1456448aeb90a4be23c009, type: 3}
